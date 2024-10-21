@@ -2,21 +2,33 @@
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import GoogleSignInButton from "../google-auth-button";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useSearchParams } from "next/navigation";
-import { useState, useTransition } from "react";
+import { signIn, useSession } from "next-auth/react";
+import { useEffect, useTransition } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useForm } from "react-hook-form";
-import { signIn } from "next-auth/react";
+import { useRouter } from "next/navigation";
 import { LoginSchema } from "@/schemas";
 import * as z from "zod";
 
 type UserFormValue = z.infer<typeof LoginSchema>;
 
 export default function LoginForm() {
-  const searchParams = useSearchParams();
-  const callbackUrl = searchParams.get("callbackUrl");
   const [loading, startTransition] = useTransition();
+  const { data: session, status } = useSession();
+  const router = useRouter();
+
+  useEffect(() => {
+    if (status === "authenticated") {
+      console.log(session.user);
+      if (session?.user?.role === "Admin") {
+        router.push("/admin/dashboard");
+      } else if (session?.user?.role === "Client") {
+        router.push("/client/dashboard");
+      }
+    }
+  }, [session, status, router]);
+
   const form = useForm<UserFormValue>({
     resolver: zodResolver(LoginSchema),
     defaultValues: {
@@ -26,11 +38,11 @@ export default function LoginForm() {
   });
 
   const onSubmit = async (values: UserFormValue) => {
-    startTransition(() => {
+    startTransition(async () => {
       signIn("credentials", {
         email: values.email,
         password: values.password,
-        callbackUrl: callbackUrl ?? "/dashboard",
+        redirect: false,
       });
     });
   };
