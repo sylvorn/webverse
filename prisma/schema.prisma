@@ -1,0 +1,89 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String @unique @default(uuid())
+  fname     String?
+  lname     String?
+  email     String @unique
+  password  String
+  mobile    Int?
+  role      UserRole @default(Client)
+  createdAt DateTime @default(now())
+  updatedAt DateTime?
+  Licenses  Licenses[]
+  Order     Order[]
+}
+
+model Service {
+  id          String @unique @default(uuid())
+  name        String
+  description String
+  price       Int
+  status      ServiceStatus @default(Pending)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime?
+  Licenses    Licenses[]
+  Order       Order[]
+}
+
+model Licenses {
+  id          String @unique @default(uuid())
+  licensesKey String
+  expiryDate  DateTime
+  status      LicenseStatus
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime?
+  userId      String
+  serviceId   String
+  user        User @relation(fields: [userId], references: [id])
+  service     Service @relation(fields: [serviceId], references: [id])
+  Order       Order[]
+}
+
+model Order {
+  id         String @unique @default(uuid())
+  status     OrderStatus @default(Pending)
+  userId     String
+  serviceId  String
+  licensesId String
+  user       User @relation(fields: [userId], references: [id])
+  service    Service @relation(fields: [serviceId], references: [id])
+  licenses   Licenses @relation(fields: [licensesId], references: [id])
+}
+
+enum UserRole {
+  Admin
+  Client
+}
+
+enum ServiceStatus {
+  Pending
+  Active
+  Deactived
+}
+
+enum LicenseStatus {
+  Pending
+  Active
+  Deactived
+  Expired
+}
+
+enum OrderStatus {
+  Pending
+  Canceled
+  Compeleted
+}
