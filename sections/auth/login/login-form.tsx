@@ -20,7 +20,6 @@ export default function LoginForm() {
 
   useEffect(() => {
     if (status === "authenticated") {
-      console.log(session.user);
       if (session?.user?.role === "Admin") {
         router.push("/admin/dashboard");
       } else if (session?.user?.role === "Client") {
