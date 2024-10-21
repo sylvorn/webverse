@@ -1,6 +1,9 @@
-import { NextAuthConfig } from "next-auth";
 import CredentialProvider from "next-auth/providers/credentials";
 import GoogleProvider from "next-auth/providers/google";
+import db from "@/lib/prisma";
+import { NextAuthConfig } from "next-auth";
+import prisma from "@/lib/prisma";
+import bcrypt from "bcrypt";
 
 const authConfig = {
   providers: [
@@ -17,24 +20,35 @@ const authConfig = {
           type: "password",
         },
       },
-      async authorize(credentials, req) {
-        const user = {
-          id: "1",
-          name: "John",
-          email: credentials?.email as string,
-        };
-        if (user) {
-          // Any object returned will be saved in `user` property of the JWT
-          return user;
-        } else {
-          // If you return null then an error will be displayed advising the user to check their details.
-          return null;
+      async authorize(credentials: any) {
+        console.log(credentials);
+        const user = await prisma.user.findUnique({
+          where: {
+            email: credentials.email,
+          },
+          select: {
+            fname: true,
+            lname: true,
+            email: true,
+            password: true,
+            mobile: true,
+            role: true,
+          },
+        });
 
-          // You can also Reject this callback with an Error thus the user will be sent to the error page with the error message as a query parameter
+        if (user) {
+          const comparedPassword = await bcrypt.compare(credentials.password, user.password);
+          if (comparedPassword) {
+            return user;
+          }
+          return null;
+        } else {
+          return null;
         }
       },
     }),
   ],
+  session: { strategy: "jwt" },
   pages: {
     signIn: "/",
   },

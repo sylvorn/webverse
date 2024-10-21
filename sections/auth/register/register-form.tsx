@@ -1,24 +1,28 @@
 "use client";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
-import GoogleSignInButton from "../google-auth-button";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useSearchParams } from "next/navigation";
-import { useState, useTransition } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useForm } from "react-hook-form";
-import { signIn } from "next-auth/react";
-import { LoginSchema } from "@/schemas";
+import { useState, useTransition } from "react";
 import * as z from "zod";
+import { RegisterSchema } from "@/schemas";
+import GoogleSignInButton from "../google-auth-button";
+import { register } from "@/actions/register";
+import FormError from "../form-error";
+import FormSuccess from "../form-success";
 
-type UserFormValue = z.infer<typeof LoginSchema>;
+type UserFormValue = z.infer<typeof RegisterSchema>;
 
-export default function LoginForm() {
+export default function RegisterForm() {
+  const [error, setError] = useState<string | undefined>("");
+  const [success, setSuccess] = useState<string | undefined>("");
   const searchParams = useSearchParams();
   const callbackUrl = searchParams.get("callbackUrl");
   const [loading, startTransition] = useTransition();
   const form = useForm<UserFormValue>({
-    resolver: zodResolver(LoginSchema),
+    resolver: zodResolver(RegisterSchema),
     defaultValues: {
       email: "",
       password: "",
@@ -26,11 +30,13 @@ export default function LoginForm() {
   });
 
   const onSubmit = async (values: UserFormValue) => {
+    setError("");
+    setSuccess("");
+
     startTransition(() => {
-      signIn("credentials", {
-        email: values.email,
-        password: values.password,
-        callbackUrl: callbackUrl ?? "/dashboard",
+      register(values).then((data) => {
+        setError(data.error);
+        setSuccess(data.success);
       });
     });
   };
@@ -39,6 +45,35 @@ export default function LoginForm() {
     <>
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="w-full space-y-2">
+          <div className="grid grid-cols-2 gap-2">
+            <FormField
+              control={form.control}
+              name="fname"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>First Name</FormLabel>
+                  <FormControl>
+                    <Input type="text" placeholder="John" disabled={loading} {...field} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name="lname"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Last Name</FormLabel>
+                  <FormControl>
+                    <Input type="text" placeholder="Doe" disabled={loading} {...field} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+          </div>
+
           <FormField
             control={form.control}
             name="email"
@@ -46,7 +81,7 @@ export default function LoginForm() {
               <FormItem>
                 <FormLabel>Email</FormLabel>
                 <FormControl>
-                  <Input type="email" placeholder="Enter your email..." disabled={loading} {...field} />
+                  <Input type="email" placeholder="johndoe@mail.com" disabled={loading} {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -60,15 +95,18 @@ export default function LoginForm() {
               <FormItem>
                 <FormLabel>Password</FormLabel>
                 <FormControl>
-                  <Input type="password" placeholder="Enter your password..." disabled={loading} {...field} />
+                  <Input type="password" placeholder="Secret Password" disabled={loading} {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
             )}
           />
 
+          <FormError message={error} />
+          <FormSuccess message={success} />
+
           <Button disabled={loading} className="ml-auto w-full" type="submit">
-            Continue With Email
+            Create With Email
           </Button>
         </form>
       </Form>
