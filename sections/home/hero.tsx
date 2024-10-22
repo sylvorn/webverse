@@ -13,9 +13,9 @@ export default function HeroSection() {
           </span>
         </HoverBorderGradient>
         <h1 className="mt-5 text-5xl md:text-9xl font-bold text-center bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400 bg-opacity-50">
-          Spotlight <br /> is the new trend.
+          Innovating Future <br /> Solutions.
         </h1>
-        <p className="mt-4 font-normal text-lg text-neutral-300 max-w-xl text-center mx-auto">Spotlight effect is a great way to draw attention to a specific part of the page. Here, we are drawing the attention towards the text section of the page. I don&apos;t know why but I&apos;m running out of copy.</p>
+        <p className="mt-4 font-normal text-lg text-neutral-300 max-w-xl text-center mx-auto">At Yuganta Techonlogies, we specialize in providing innovative IT solutions that drive efficiency and growth. Whether you're looking for full-stack development or custom software, our dedicated team is here to support your vision.</p>
       </div>
     </div>
   );
