@@ -1,3 +1,4 @@
+import Header from "@/sections/layout/header";
 import Sidebar from "@/sections/layout/sidebar";
 import { NavItem } from "@/types";
 import type { Metadata } from "next";
@@ -51,7 +52,10 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
   return (
     <div className="flex">
       <Sidebar navItems={navItems} />
-      <main className="w-full flex-1 overflow-hidden">{children}</main>
+      <main className="w-full flex-1 overflow-hidden">
+        <Header navItems={navItems} />
+        {children}
+      </main>
     </div>
   );
 }
