@@ -29,8 +29,16 @@ model Service {
   id          String   @unique @default(uuid())
   name        String   
   description String   
-  plans       Plan[]   
+  categoryId  String   
+  category    Category @relation(fields: [categoryId], references: [id])
+  plans       Plan[]
 }
+model Category {
+  id          String   @unique @default(uuid())
+  name        String
+  service     Service[]
+}
+
 model Plan {
   id          String   @unique @default(uuid()) 
   name        String   
