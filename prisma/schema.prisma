@@ -14,54 +14,63 @@ datasource db {
 }
 
 model User {
-  id        String @unique @default(uuid())
-  fname     String?
-  lname     String?
-  email     String @unique
-  password  String
-  mobile    Int?
-  role      UserRole @default(Client)
-  createdAt DateTime @default(now())
-  updatedAt DateTime?
-  Licenses  Licenses[]
-  Order     Order[]
+  id        String   @unique @default(uuid()) 
+  fname     String?  
+  lname     String?  
+  email     String   @unique 
+  password  String   
+  mobile    Int?     
+  role      UserRole @default(Client) 
+  createdAt DateTime @default(now())  
+  updatedAt DateTime? 
+  subscriptions Subscription[]
 }
-
 model Service {
-  id          String @unique @default(uuid())
-  name        String
-  description String
-  price       Int
-  status      ServiceStatus @default(Pending)
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime?
-  Licenses    Licenses[]
-  Order       Order[]
+  id          String   @unique @default(uuid())
+  name        String   
+  description String   
+  plans       Plan[]   
 }
-
-model Licenses {
-  id          String @unique @default(uuid())
-  licensesKey String
-  expiryDate  DateTime
-  status      LicenseStatus
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime?
-  userId      String
-  serviceId   String
-  user        User @relation(fields: [userId], references: [id])
-  service     Service @relation(fields: [serviceId], references: [id])
-  Order       Order[]
+model Plan {
+  id          String   @unique @default(uuid()) 
+  name        String   
+  description String   
+  price       Int      
+  serviceId   String   
+  service     Service  @relation(fields: [serviceId], references: [id])
+  subscriptions Subscription[] 
 }
-
-model Order {
-  id         String @unique @default(uuid())
-  status     OrderStatus @default(Pending)
-  userId     String
-  serviceId  String
-  licensesId String
-  user       User @relation(fields: [userId], references: [id])
-  service    Service @relation(fields: [serviceId], references: [id])
-  licenses   Licenses @relation(fields: [licensesId], references: [id])
+model Subscription {
+  id           String   @unique @default(uuid()) 
+  status       SubscriptionStatus @default(Pending) 
+  startDate    DateTime @default(now()) 
+  endDate      DateTime                 
+  userId       String                   
+  user         User      @relation(fields: [userId], references: [id])
+  planId       String                   
+  plan         Plan      @relation(fields: [planId], references: [id]) 
+  license      License[]
+  payments     Payment[]
+}
+model License {
+  id          String   @unique @default(uuid()) 
+  licenseKey  String   
+  expiryDate  DateTime 
+  status      LicenseStatus 
+  createdAt   DateTime @default(now())  
+  subscriptionId String                 
+  subscription Subscription @relation(fields: [subscriptionId], references: [id])
+}
+model Payment {
+  id          String   @unique @default(uuid()) 
+  amount      Int      
+  currency    String   
+  paymentDate DateTime @default(now()) 
+  status      PaymentStatus 
+  method      String?  
+  subscriptionId String 
+  subscription Subscription @relation(fields: [subscriptionId], references: [id]) 
+  razorpayPaymentId String? 
 }
 
 enum UserRole {
@@ -69,21 +78,20 @@ enum UserRole {
   Client
 }
 
-enum ServiceStatus {
+enum SubscriptionStatus {
   Pending
   Active
-  Deactived
+  Expired
 }
 
 enum LicenseStatus {
   Pending
   Active
-  Deactived
   Expired
 }
 
-enum OrderStatus {
+enum PaymentStatus {
   Pending
-  Canceled
-  Compeleted
+  Completed
+  Failed
 }
