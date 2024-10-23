@@ -1,4 +1,4 @@
-import { Icons } from '@/components/icons';
+import { Icons } from "@/components/icons";
 
 export interface NavItem {
   title: string;
@@ -31,3 +31,14 @@ export interface FooterItem {
 export type MainNavItem = NavItemWithOptionalChildren;
 
 export type SidebarNavItem = NavItemWithChildren;
+
+export interface RecentSalesItemProps {
+  fname: string;
+  lname: string;
+  email: string;
+  amount: string;
+}
+
+export interface RecentSalesItemPropsArray {
+  items: RecentSalesItemProps[];
+}
