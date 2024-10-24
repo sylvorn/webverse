@@ -8,7 +8,7 @@ export default function Technologies() {
         <h1 className="text-3xl font-bold">Our Cutting-Edge Technology Stack</h1>
         <p className="text-gray-400">Leveraging modern technologies like React, Next.js, Node.js, and more to deliver cutting-edge solutions.</p>
       </div>
-      <div className="h-[40rem] flex flex-col antialiased bg-white dark:bg-black dark:bg-grid-white/[0.05] items-center justify-center relative overflow-hidden">
+      <div className="h-[40rem] flex flex-col antialiasedbg-black bg-grid-white/[0.05] items-center justify-center relative overflow-hidden">
         <InfiniteMovingLogos items={logos} direction="right" speed="slow" pauseOnHover={false} />
         <InfiniteMovingLogos items={logos.reverse()} direction="left" speed="slow" pauseOnHover={false} />
       </div>
