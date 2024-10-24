@@ -15,7 +15,7 @@ export const navItems: NavItem[] = [
   },
   {
     title: "Users",
-    href: "/admin/employee",
+    href: "/admin/users",
     icon: "user",
     label: "Users",
   },

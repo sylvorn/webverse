@@ -1,9 +1,19 @@
+"use client";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { RecentSales } from "@/sections/admin/dashboard/overview/recent-sales";
 import { AreaGraph } from "@/components/graph/area-graph";
 import { PieGraph } from "@/components/graph/pie-graph";
 
+import useSWR from "swr";
+import fetcher from "@/fetcher";
+import OverviewSkeleton from "./overview-skeleton";
+
 export default function OverViewPage() {
+  const { data, error, isLoading } = useSWR("/api/admin-dashboard-overview", fetcher);
+  console.log(data);
+
+  if (isLoading) return <OverviewSkeleton />;
+
   return (
     <>
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
@@ -15,8 +25,8 @@ export default function OverViewPage() {
             </svg>
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold">$45,231.89</div>
-            <p className="text-xs text-muted-foreground">+20.1% from last month</p>
+            <div className="text-2xl font-bold">{data.totalRevenue._sum.amount ? data.totalRevenue._sum.amount : 0}</div>
+            <p className="text-xs text-muted-foreground">This month</p>
           </CardContent>
         </Card>
         <Card>
@@ -29,8 +39,8 @@ export default function OverViewPage() {
             </svg>
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold">+2350</div>
-            <p className="text-xs text-muted-foreground">+180.1% from last month</p>
+            <div className="text-2xl font-bold">{data.totalSubscriptions}</div>
+            <p className="text-xs text-muted-foreground">This month</p>
           </CardContent>
         </Card>
         <Card>
@@ -42,20 +52,20 @@ export default function OverViewPage() {
             </svg>
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold">+12,234</div>
-            <p className="text-xs text-muted-foreground">+19% from last month</p>
+            <div className="text-2xl font-bold">{data.totalRevenue._sum.amount ? data.totalRevenue._sum.amount : 0}</div>
+            <p className="text-xs text-muted-foreground">This month</p>
           </CardContent>
         </Card>
         <Card>
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">Active Now</CardTitle>
+            <CardTitle className="text-sm font-medium">Active Licenses</CardTitle>
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" className="h-4 w-4 text-muted-foreground">
               <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
             </svg>
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold">+573</div>
-            <p className="text-xs text-muted-foreground">+201 since last hour</p>
+            <div className="text-2xl font-bold">{data.totalActiveLicense}</div>
+            <p className="text-xs text-muted-foreground">This month</p>
           </CardContent>
         </Card>
       </div>
@@ -64,39 +74,17 @@ export default function OverViewPage() {
         <Card className="col-span-4 md:col-span-3">
           <CardHeader>
             <CardTitle>Recent Sales</CardTitle>
-            <CardDescription>You made 265 sales this month.</CardDescription>
+            <CardDescription>You made {data.recentPayments.length} sales this month.</CardDescription>
           </CardHeader>
           <CardContent>
-            <RecentSales items={[{ fname: "Jenil", lname: "Desai", email: "jenildev91@gmail.com", amount: "" }]} />
+            <RecentSales items={data.recentPayments} />
           </CardContent>
         </Card>
         <div className="col-span-4">
-          <AreaGraph
-            title={"Category Wise Sales"}
-            data={[
-              { month: "January", education: 23, dedicated: 46 },
-              { month: "February", education: 32, dedicated: 64 },
-              { month: "March", education: 63, dedicated: 67 },
-              { month: "April", education: 78, dedicated: 45 },
-              { month: "May", education: 73, dedicated: 46 },
-            ]}
-          />
+          <AreaGraph description="Showing total sales till current month" title={"Category Wise Sales"} data={[]} />
         </div>
         <div className="col-span-4 md:col-span-3">
-          <PieGraph
-            dtKey="sales"
-            nmKey="software"
-            title={"Software Sales"}
-            data={[
-              { software: "CMS", sales: 23 },
-              { software: "CMS", sales: 23 },
-              { software: "CMS", sales: 23 },
-              { software: "CMS", sales: 23 },
-              { software: "CMS", sales: 23 },
-              { software: "CMS", sales: 23 },
-              { software: "HMS", sales: 24 },
-            ]}
-          />
+          <PieGraph description="Showing total sales till current month" dtKey="sales" nmKey="software" title={"Software Sales"} data={[]} />
         </div>
       </div>
     </>
