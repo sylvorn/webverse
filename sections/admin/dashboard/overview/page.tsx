@@ -9,8 +9,7 @@ import fetcher from "@/fetcher";
 import OverviewSkeleton from "./overview-skeleton";
 
 export default function OverViewPage() {
-  const { data, error, isLoading } = useSWR("/api/admin-dashboard-overview", fetcher);
-  console.log(data);
+  const { data, isLoading } = useSWR("/api/admin/stats", fetcher);
 
   if (isLoading) return <OverviewSkeleton />;
 

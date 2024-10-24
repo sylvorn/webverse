@@ -1,10 +1,10 @@
 import { getMonthlyCategorySums, getRecentPayments, getServiceSales, getTotalActiveLicense, getTotalRevenue, getTotalSubscriptions } from "@/lib/admin-overview-stats";
-import { NextResponse } from "next/server";
 import { auth } from "@/auth";
+import { NextResponse } from "next/server";
 
 export async function GET() {
   const session = await auth();
-  if (session) {
+  if (session?.user.role === "Admin") {
     const totalRevenue = await getTotalRevenue();
     const totalSubscriptions = await getTotalSubscriptions();
     const totalActiveLicense = await getTotalActiveLicense();
@@ -14,6 +14,6 @@ export async function GET() {
 
     return NextResponse.json({ totalRevenue, totalSubscriptions, totalActiveLicense, recentPayments, monthlyCategorySums, serviceSales });
   } else {
-    return NextResponse.json({ error: "Not Authorized" });
+    return NextResponse.json({ error: "Unauthorized" });
   }
 }
