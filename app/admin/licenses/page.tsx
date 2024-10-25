@@ -30,10 +30,6 @@ export default function () {
 
         <div className="flex items-start justify-between">
           <Heading title={`Licenses - ${data.length}`} description="Manage Licenses Details" />
-
-          <Link href={"/admin/licenses/new"} className={cn(buttonVariants({ variant: "default" }))}>
-            <Plus className="mr-2 h-4 w-4" /> Add New
-          </Link>
         </div>
         <Separator />
         <DataTable data={data} columns={columns} />

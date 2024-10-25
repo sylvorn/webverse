@@ -21,6 +21,9 @@ model User {
   password  String   
   mobile    Int?     
   role      UserRole @default(Client) 
+  otp       String?
+  otpExpiresOn DateTime?
+  isVerfiy  Boolean @default(false)
   createdAt DateTime @default(now())  
   updatedAt DateTime? 
   subscriptions Subscription[]
@@ -28,22 +31,23 @@ model User {
 model Service {
   id          String   @unique @default(uuid())
   name        String   
-  description String   
-  categoryId  String   
-  category    Category @relation(fields: [categoryId], references: [id])
+  description String
+  features    Features[]
   plans       Plan[]
 }
-model Category {
-  id          String   @unique @default(uuid())
-  name        String
-  service     Service[]
+model Features {
+  id          String @unique @default(uuid())
+  title       String
+  content     String
+  serviceId   String
+  service     Service @relation(fields: [serviceId], references: [id])
 }
-
 model Plan {
   id          String   @unique @default(uuid()) 
   name        String   
   description String   
-  price       Int      
+  price       Int   
+  duration    Int      //In Months   
   serviceId   String   
   service     Service  @relation(fields: [serviceId], references: [id])
   subscriptions Subscription[] 

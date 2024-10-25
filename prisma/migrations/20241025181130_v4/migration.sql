@@ -19,6 +19,9 @@ CREATE TABLE "User" (
     "password" TEXT NOT NULL,
     "mobile" INTEGER,
     "role" "UserRole" NOT NULL DEFAULT 'Client',
+    "otp" TEXT,
+    "otpExpiresOn" TIMESTAMP(3),
+    "isVerfiy" BOOLEAN NOT NULL DEFAULT false,
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updatedAt" TIMESTAMP(3)
 );
@@ -31,11 +34,20 @@ CREATE TABLE "Service" (
 );
 
 -- CreateTable
+CREATE TABLE "Features" (
+    "id" TEXT NOT NULL,
+    "title" TEXT NOT NULL,
+    "content" TEXT NOT NULL,
+    "serviceId" TEXT NOT NULL
+);
+
+-- CreateTable
 CREATE TABLE "Plan" (
     "id" TEXT NOT NULL,
     "name" TEXT NOT NULL,
     "description" TEXT NOT NULL,
     "price" INTEGER NOT NULL,
+    "duration" INTEGER NOT NULL,
     "serviceId" TEXT NOT NULL
 );
 
@@ -81,6 +93,9 @@ CREATE UNIQUE INDEX "User_email_key" ON "User"("email");
 CREATE UNIQUE INDEX "Service_id_key" ON "Service"("id");
 
 -- CreateIndex
+CREATE UNIQUE INDEX "Features_id_key" ON "Features"("id");
+
+-- CreateIndex
 CREATE UNIQUE INDEX "Plan_id_key" ON "Plan"("id");
 
 -- CreateIndex
@@ -91,6 +106,9 @@ CREATE UNIQUE INDEX "License_id_key" ON "License"("id");
 
 -- CreateIndex
 CREATE UNIQUE INDEX "Payment_id_key" ON "Payment"("id");
+
+-- AddForeignKey
+ALTER TABLE "Features" ADD CONSTRAINT "Features_serviceId_fkey" FOREIGN KEY ("serviceId") REFERENCES "Service"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
 
 -- AddForeignKey
 ALTER TABLE "Plan" ADD CONSTRAINT "Plan_serviceId_fkey" FOREIGN KEY ("serviceId") REFERENCES "Service"("id") ON DELETE RESTRICT ON UPDATE CASCADE;

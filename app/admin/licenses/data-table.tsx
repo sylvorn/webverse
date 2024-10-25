@@ -104,12 +104,6 @@ export function DataTable<TData, TValue>({ columns, data }: DataTableProps<TData
                     </div>
                     <div className="text-lg font-medium">No results found</div>
                     <div className="text-sm text-muted-foreground">There are no users matching your search criteria.</div>
-                    <Link href="/admin/licenses/new">
-                      <Button>
-                        <UserPlus className="mr-2 h-4 w-4" />
-                        Add New Licenses
-                      </Button>
-                    </Link>
                   </div>
                 </TableCell>
               </TableRow>

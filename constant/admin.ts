@@ -21,9 +21,15 @@ export const navItems: NavItem[] = [
   },
   {
     title: "Service",
-    href: "/admin/product",
+    href: "/admin/services",
     icon: "product",
     label: "Service",
+  },
+  {
+    title: "Companies",
+    href: "/admin/companies",
+    icon: "company",
+    label: "Companies",
   },
   {
     title: "Account",
