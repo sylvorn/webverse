@@ -3,11 +3,11 @@ import { ColumnDef, ColumnFiltersState, SortingState, VisibilityState, flexRende
 import { DropdownMenu, DropdownMenuCheckboxItem, DropdownMenuContent, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
+import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
+import { ChevronDown, Search, UserPlus } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { ChevronDown, Search, UserPlus } from "lucide-react";
 import * as React from "react";
-import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 import Link from "next/link";
 
 interface DataTableProps<TData, TValue> {
@@ -43,17 +43,7 @@ export function DataTable<TData, TValue>({ columns, data }: DataTableProps<TData
   return (
     <div className="w-full">
       <div className="flex items-center py-4">
-        <Input placeholder="Search names..." value={(table.getColumn("fname")?.getFilterValue() as string) ?? ""} onChange={(event) => table.getColumn("fname")?.setFilterValue(event.target.value)} className="max-w-sm" />
-        <Select value={(table.getColumn("role")?.getFilterValue() as string) ?? "all"} onValueChange={(value) => table.getColumn("role")?.setFilterValue(value === "all" ? "" : value)}>
-          <SelectTrigger className="ml-4 w-[180px]">
-            <SelectValue placeholder="Select a role" />
-          </SelectTrigger>
-          <SelectContent>
-            <SelectItem value="all">All Roles</SelectItem>
-            <SelectItem value="Admin">Admin</SelectItem>
-            <SelectItem value="Client">Client</SelectItem>
-          </SelectContent>
-        </Select>
+        <Input placeholder="Search names..." value={(table.getColumn("name")?.getFilterValue() as string) ?? ""} onChange={(event) => table.getColumn("name")?.setFilterValue(event.target.value)} className="max-w-sm" />
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
             <Button variant="outline" className="ml-auto">
@@ -105,10 +95,10 @@ export function DataTable<TData, TValue>({ columns, data }: DataTableProps<TData
                     </div>
                     <div className="text-lg font-medium">No results found</div>
                     <div className="text-sm text-muted-foreground">There are no users matching your search criteria.</div>
-                    <Link href="/admin/users/new">
+                    <Link href="/admin/services/new">
                       <Button>
                         <UserPlus className="mr-2 h-4 w-4" />
-                        Add New User
+                        Add New Service
                       </Button>
                     </Link>
                   </div>

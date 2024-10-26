@@ -7,10 +7,10 @@ import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 
 const breadcrumbItems = [
   { title: "Dashboard", link: "/admin/dashboard" },
-  { title: "Users", link: "/admin/users" },
+  { title: "Services", link: "/admin/services" },
 ];
 
-export default function UserPageSkeleton() {
+export default function ServicePageSkeleton() {
   return (
     <PageContainer scrollable>
       <div className="space-y-4">
