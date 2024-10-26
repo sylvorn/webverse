@@ -78,3 +78,57 @@
     height: 100dvh;
   }
 }
+
+/* Add this CSS to your global styles (e.g., globals.css): */
+.cm-editor {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+
+.cm-editor.cm-focused {
+  outline: none;
+}
+
+.cm-editor .cm-scroller {
+  padding: 8px;
+}
+
+.dark .cm-editor {
+  background-color: hsl(var(--background));
+  color: hsl(var(--foreground));
+}
+
+.dark .cm-editor .cm-content {
+  color: hsl(var(--foreground));
+}
+
+.dark .cm-editor .cm-line {
+  caret-color: hsl(var(--foreground));
+}
+
+.dark .cm-editor .cm-cursor {
+  border-left-color: hsl(var(--foreground));
+}
+
+.dark .cm-editor .cm-selectionBackground {
+  background-color: hsl(var(--accent) / 0.3);
+}
+
+.dark .cm-editor .cm-gutters {
+  background-color: hsl(var(--muted));
+  color: hsl(var(--muted-foreground));
+  border-right: 1px solid hsl(var(--border));
+}
+
+.dark .cm-editor .cm-activeLineGutter {
+  background-color: hsl(var(--muted) / 0.5);
+}
+
+.dark .cm-editor .cm-activeLine {
+  background-color: hsl(var(--muted) / 0.2);
+}
+
+.dark .cm-editor .cm-matchingBracket,
+.dark .cm-editor .cm-nonmatchingBracket {
+  color: inherit;
+  background-color: hsl(var(--accent) / 0.3);
+}
