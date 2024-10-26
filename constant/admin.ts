@@ -26,12 +26,6 @@ export const navItems: NavItem[] = [
     label: "Service",
   },
   {
-    title: "Companies",
-    href: "/admin/companies",
-    icon: "company",
-    label: "Companies",
-  },
-  {
     title: "Account",
     icon: "user",
     label: "account",
