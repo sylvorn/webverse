@@ -67,12 +67,20 @@ export const FloatingNav = ({
             </button>
           </Link>
         ) : (
-          <Link href={"/signin"}>
-            <button className="border text-sm font-medium relative border-white/[0.2] text-white px-4 py-2 rounded-full">
-              <span>Login</span>
-              <span className="absolute inset-x-0 w-1/2 mx-auto -bottom-px bg-gradient-to-r from-transparent via-blue-500 to-transparent  h-px" />
-            </button>
-          </Link>
+          <span>
+            <Link href={"/signin"}>
+              <button className="border text-sm font-medium relative border-white/[0.2] text-white px-4 py-2 rounded-tl-full rounded-bl-full">
+                <span>Login</span>
+                <span className="absolute inset-x-0 w-1/2 mx-auto -bottom-px bg-gradient-to-r from-transparent via-blue-500 to-transparent  h-px" />
+              </button>
+            </Link>
+            <Link href={"/signup"}>
+              <button className="border text-sm font-medium relative border-white/[0.2] text-white px-4 py-2 rounded-tr-full rounded-br-full">
+                <span>Register</span>
+                <span className="absolute inset-x-0 w-1/2 mx-auto -bottom-px bg-gradient-to-r from-transparent via-blue-500 to-transparent  h-px" />
+              </button>
+            </Link>
+          </span>
         )}
       </motion.div>
     </AnimatePresence>
