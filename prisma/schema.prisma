@@ -19,11 +19,14 @@ model User {
   lname     String?  
   email     String   @unique 
   password  String   
-  mobile    Int?     
+  mobile    String?     
   role      UserRole @default(Client) 
   otp       String?
   otpExpiresOn DateTime?
   isVerfiy  Boolean @default(false)
+  marketingEmails Boolean @default(true)
+  securityEmails Boolean @default(true)
+  updatesEmails Boolean @default(true)
   createdAt DateTime @default(now())  
   updatedAt DateTime? 
   subscriptions Subscription[]

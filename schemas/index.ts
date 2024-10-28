@@ -63,3 +63,29 @@ export const newServiceSchema = z.object({
     )
     .min(1, "At least one plan is required"),
 });
+
+export const profileSchema = z.object({
+  fname: z.string().min(2, "First name must be at least 2 characters"),
+  lname: z.string().min(2, "Last name must be at least 2 characters"),
+  email: z.string().email("Invalid email address"),
+  mobile: z.string().min(10, "Mobile number must be at least 10 digits"),
+  role: z.enum(["Admin", "Client"]).optional(),
+  createdAt: z.string().optional(),
+});
+
+export const notificationSchema = z.object({
+  marketing: z.boolean(),
+  security: z.boolean(),
+  newsletter: z.boolean(),
+});
+
+export const securitySchema = z
+  .object({
+    currentPassword: z.string().min(8, "Password must be at least 8 characters"),
+    newPassword: z.string().min(8, "Password must be at least 8 characters"),
+    confirmPassword: z.string().min(8, "Password must be at least 8 characters"),
+  })
+  .refine((data) => data.newPassword === data.confirmPassword, {
+    message: "Passwords don't match",
+    path: ["confirmPassword"],
+  });
