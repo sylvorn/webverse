@@ -14,6 +14,12 @@ export const navItems: NavItem[] = [
     label: "Licenses",
   },
   {
+    title: "Payments",
+    href: "/client/payments",
+    icon: "money",
+    label: "Payments",
+  },
+  {
     title: "Account",
     icon: "user",
     label: "account",
