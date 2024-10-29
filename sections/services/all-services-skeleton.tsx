@@ -18,6 +18,24 @@ export default function AllServicesSkeleton() {
             </div>
           </GlowingStarsBackgroundCard>
         </div>
+        <div className="flex py-20 items-center justify-center antialiased">
+          <GlowingStarsBackgroundCard>
+            <Skeleton className="h-10 w-3/4" />
+            <div className="flex justify-between items-end">
+              <Skeleton className="h-6 w-1/2" />
+              <div className="h-8 w-8 rounded-full bg-[hsla(0,0%,100%,.1)] flex items-center justify-center"></div>
+            </div>
+          </GlowingStarsBackgroundCard>
+        </div>
+        <div className="flex py-20 items-center justify-center antialiased">
+          <GlowingStarsBackgroundCard>
+            <Skeleton className="h-10 w-3/4" />
+            <div className="flex justify-between items-end">
+              <Skeleton className="h-6 w-1/2" />
+              <div className="h-8 w-8 rounded-full bg-[hsla(0,0%,100%,.1)] flex items-center justify-center"></div>
+            </div>
+          </GlowingStarsBackgroundCard>
+        </div>
       </div>
     </div>
   );
