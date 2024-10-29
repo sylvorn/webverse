@@ -1,9 +1,19 @@
+"use client";
 import { Facebook, Twitter, Instagram, Linkedin, Github } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { TextHoverEffect } from "@/components/ui/text-hover-effect";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 export function Footer() {
+  const pathname = usePathname();
+  const isAdminRoute = pathname.startsWith("/admin");
+  const isClientRoute = pathname.startsWith("/client");
+  const shouldHideNavbarFooter = isAdminRoute || isClientRoute;
+  if (shouldHideNavbarFooter) {
+    return null;
+  }
+
   return (
     <footer className="bg-black/[0.95] antialiased bg-grid-white/[0.02] border-t border-gray-800">
       <div className="container px-4 py-8 mx-auto">

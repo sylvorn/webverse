@@ -1,23 +1,22 @@
 "use client";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { useSearchParams } from "next/navigation";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { useForm } from "react-hook-form";
-import { useState, useTransition } from "react";
-import * as z from "zod";
-import { RegisterSchema } from "@/schemas";
 import GoogleSignInButton from "../google-auth-button";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useRouter, useSearchParams } from "next/navigation";
+import { Button } from "@/components/ui/button";
+import { useState, useTransition } from "react";
+import { Input } from "@/components/ui/input";
 import { register } from "@/actions/register";
+import { RegisterSchema } from "@/schemas";
+import { useForm } from "react-hook-form";
 import FormError from "../form-error";
-import FormSuccess from "../form-success";
+import * as z from "zod";
 
 type UserFormValue = z.infer<typeof RegisterSchema>;
 
 export default function RegisterForm() {
+  const router = useRouter();
   const [error, setError] = useState<string | undefined>("");
-  const [success, setSuccess] = useState<string | undefined>("");
   const searchParams = useSearchParams();
   const callbackUrl = searchParams.get("callbackUrl");
   const [loading, startTransition] = useTransition();
@@ -31,12 +30,11 @@ export default function RegisterForm() {
 
   const onSubmit = async (values: UserFormValue) => {
     setError("");
-    setSuccess("");
 
     startTransition(() => {
       register(values).then((data) => {
         setError(data.error);
-        setSuccess(data.success);
+        if (data.success) router.push(`/verify-user?email=${values.email}`);
       });
     });
   };
@@ -103,7 +101,6 @@ export default function RegisterForm() {
           />
 
           <FormError message={error} />
-          <FormSuccess message={success} />
 
           <Button disabled={loading} className="ml-auto w-full" type="submit">
             Create With Email

@@ -44,11 +44,11 @@ export const TextHoverEffect = ({ text, duration }: { text: string; duration?: n
 
           // example for a smoother animation below
 
-          //   transition={{
-          //     type: "spring",
-          //     stiffness: 300,
-          //     damping: 50,
-          //   }}
+          // transition={{
+          //   type: "spring",
+          //   stiffness: 300,
+          //   damping: 50,
+          // }}
         >
           <stop offset="0%" stopColor="white" />
           <stop offset="100%" stopColor="black" />
@@ -57,7 +57,7 @@ export const TextHoverEffect = ({ text, duration }: { text: string; duration?: n
           <rect x="0" y="0" width="100%" height="100%" fill="url(#revealMask)" />
         </mask>
       </defs>
-      <text x="50%" y="50%" textAnchor="middle" dominantBaseline="middle" strokeWidth="0.3" className="font-[helvetica] font-bold stroke-neutral-200 dark:stroke-neutral-800 fill-transparent text-4xl  " style={{ opacity: hovered ? 0.7 : 0 }}>
+      <text x="50%" y="50%" textAnchor="middle" dominantBaseline="middle" strokeWidth="0.3" className="font-[helvetica] font-bold stroke-neutral-800 fill-transparent text-4xl  " style={{ opacity: hovered ? 0.7 : 0 }}>
         {text}
       </text>
       <motion.text
@@ -66,7 +66,7 @@ export const TextHoverEffect = ({ text, duration }: { text: string; duration?: n
         textAnchor="middle"
         dominantBaseline="middle"
         strokeWidth="0.3"
-        className="font-[helvetica] font-bold fill-transparent text-4xl   stroke-neutral-200 dark:stroke-neutral-800"
+        className="font-[helvetica] font-bold fill-transparent text-4xl stroke-neutral-800"
         initial={{ strokeDashoffset: 1000, strokeDasharray: 1000 }}
         animate={{
           strokeDashoffset: 0,

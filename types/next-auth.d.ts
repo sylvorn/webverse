@@ -7,24 +7,30 @@ import { JWT } from "next-auth/jwt";
 declare module "next-auth" {
   interface Session {
     user: {
-      role: string; // Add the role field
+      id: string;
+      role: string;
       fname: string;
       lname: string;
+      email: string;
     } & DefaultSession["user"];
   }
 
   interface User {
+    id: string;
     fname: string;
     lname: string;
-    role: string; // Add the role field to the User type
+    email: string;
+    role: string;
   }
 }
 
 // Extend the JWT interface to include the role
 declare module "next-auth/jwt" {
   interface JWT {
+    id: string;
     fname: string;
     lname: string;
-    role: string; // Add the role field to the JWT token
+    email: string;
+    role: string;
   }
 }
