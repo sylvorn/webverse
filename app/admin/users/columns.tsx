@@ -56,7 +56,7 @@ export const columns: ColumnDef<User>[] = [
     accessorKey: "role",
     header: "Role",
     cell: ({ row }) => {
-      return <Badge variant={row.getValue("role") === "Admin" ? "destructive" : "default"}>{row.getValue("role")}</Badge>;
+      return <Badge className={row.getValue("role") === "Admin" ? "bg-blue-500" : "bg-gray-500"}>{row.getValue("role")}</Badge>;
     },
   },
 ];

@@ -44,7 +44,7 @@ export default function NewServiceForm({
   } = useForm<FormData>({
     resolver: zodResolver(newServiceSchema),
     defaultValues: {
-      features: [{ title: "", content: "<>Please Have only 1 parent element</>" }],
+      features: [{ title: "", content: "<>Have only 1 parent element</>" }],
       plans: [{ name: "", description: "", price: 0, duration: 1 }],
     },
   });

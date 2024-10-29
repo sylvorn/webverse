@@ -25,10 +25,26 @@ export async function GET(req: NextRequest, { params }: { params: { id: string }
           duration: true,
         },
       },
+      category: {
+        select: {
+          name: true,
+        },
+      },
     },
   });
 
+  const categories = await prisma?.category.findMany();
+
   if (!service) return NextResponse.json({ error: "Invalid Service Id" });
 
-  return NextResponse.json(service);
+  const formattedService = {
+    name: service.name,
+    description: service.description,
+    category: service.category.name,
+    features: service.features,
+    plans: service.plans,
+    categories,
+  };
+
+  return NextResponse.json(formattedService);
 }

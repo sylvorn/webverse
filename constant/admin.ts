@@ -38,7 +38,7 @@ export const navItems: NavItem[] = [
       },
       {
         title: "Log Out",
-        href: "/logout",
+        href: "/admin/logout",
         icon: "login",
         label: "Log Out",
       },
