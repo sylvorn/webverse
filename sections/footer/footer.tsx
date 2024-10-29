@@ -24,7 +24,7 @@ export function Footer() {
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-6 w-6">
                 <circle cx="12" cy="12" r="10" />
               </svg>
-              <span className="font-bold text-xl text-white">Yuganta Technologies</span>
+              <span className="font-bold text-xl text-white">Prayam Infosoft</span>
             </Link>
             <p className="mt-2 text-sm text-gray-400">Empowering your digital journey.</p>
           </div>
@@ -118,12 +118,12 @@ export function Footer() {
 
         {/* Copyright */}
         <div className="mt-8 border-t border-gray-800 pt-4">
-          <p className="text-sm text-center text-gray-400">© {new Date().getFullYear()} Yuganta Technologies. All rights reserved.</p>
+          <p className="text-sm text-center text-gray-400">© {new Date().getFullYear()} Prayam Infosoft. All rights reserved.</p>
         </div>
       </div>
 
-      <div className="h-[20rem] flex items-center justify-center">
-        <TextHoverEffect text="YUGANTA TECHNOLOGIES" />
+      <div className="h-[21rem] flex items-center justify-center">
+        <TextHoverEffect text="PRAYAM INFOSOFT" />
       </div>
     </footer>
   );

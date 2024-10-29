@@ -6,7 +6,7 @@ export default function Testimonials() {
     <div className="antialiased bg-black p-6">
       <div className="text-center text-white mb-6">
         <h1 className="text-3xl font-bold">Loved by thousands of people</h1>
-        <p className="text-gray-400">Here's what some of our users have to say about Yuganata Technolgoies</p>
+        <p className="text-gray-400">Here's what some of our users have to say about Prayam Infosoft</p>
       </div>
       <div className="h-[40rem] flex flex-col antialiased bg-black bg-grid-white/[0.05] items-center justify-center relative overflow-hidden">
         <InfiniteMovingCards items={testimonials} direction="right" speed="normal" />

@@ -18,7 +18,7 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Yuganta Technologies",
+  title: "Prayam Infosoft",
   description: "Next Gen Services Providers",
 };
 
