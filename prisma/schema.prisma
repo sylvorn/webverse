@@ -80,7 +80,7 @@ model Subscription {
 }
 model License {
   id          String   @unique @default(uuid()) 
-  licenseKey  String   
+  licenseKey  String   @unique
   expiryDate  DateTime 
   status      LicenseStatus 
   createdAt   DateTime @default(now())  
