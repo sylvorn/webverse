@@ -4,6 +4,8 @@ import prisma from "@/lib/prisma";
 import bcyrpt from "bcryptjs";
 import { newUserSchema } from "@/schemas";
 
+export const runtime = "edge";
+
 export default async function newUser(values: z.infer<typeof newUserSchema>) {
   const validatedFields = newUserSchema.safeParse(values);
   if (!validatedFields.success) return { error: "Invalid Details" };

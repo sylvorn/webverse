@@ -8,6 +8,8 @@ import bcrypt from "bcryptjs";
 import * as z from "zod";
 import { transporter } from "@/lib/nodemailer";
 
+export const runtime = "edge";
+
 export const register = async (values: z.infer<typeof RegisterSchema>) => {
   const validatedFields = RegisterSchema.safeParse(values);
   if (!validatedFields.success) {

@@ -2,6 +2,8 @@
 import { newServiceSchema } from "@/schemas";
 import * as z from "zod";
 
+export const runtime = "edge";
+
 export default async function newService(values: z.infer<typeof newServiceSchema>) {
   const validatedFields = newServiceSchema.safeParse(values);
   if (!validatedFields.success) {

@@ -4,6 +4,8 @@ import prisma from "@/lib/prisma";
 import * as z from "zod";
 import dayjs from "dayjs";
 
+export const runtime = "edge";
+
 export default async function verifyUser(values: z.infer<typeof verifyUserSchema>) {
   const user = await prisma?.user.findUnique({
     where: {
