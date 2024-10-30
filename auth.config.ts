@@ -13,15 +13,20 @@ const authConfig: NextAuthConfig = {
     CredentialsProvider({
       name: "Credentials",
       credentials: {
-        email: { label: "Email", type: "email" },
-        password: { label: "Password", type: "password" },
+        email: { label: "Email", type: "email", required: true },
+        password: { label: "Password", type: "password", required: true },
       },
-      async authorize(credentials: any) {
-        if (!credentials?.email || !credentials?.password) return null;
+      async authorize(credentials) {
+        // Type assertion
+        const { email, password } = credentials as Record<string, unknown>;
+
+        if (!email || typeof email !== "string" || !password || typeof password !== "string") {
+          return null; // Ensure valid email and password
+        }
 
         const user = await prisma.user.findUnique({
           where: {
-            email: credentials.email,
+            email,
           },
           select: {
             id: true,
@@ -36,7 +41,7 @@ const authConfig: NextAuthConfig = {
 
         if (user) {
           if (user.isVerfiy) {
-            const isPasswordValid = await bcrypt.compare(credentials.password, user.password);
+            const isPasswordValid = await bcrypt.compare(password, user.password);
             if (isPasswordValid) {
               return {
                 id: user.id,
@@ -46,20 +51,19 @@ const authConfig: NextAuthConfig = {
                 role: user.role,
               };
             } else {
-              throw new Error("InvalidPassword");
+              throw new Error("Invalid password.");
             }
           } else {
-            throw new Error("UserNotVerify");
+            throw new Error("User not verified.");
           }
         } else {
-          throw new Error("UserNotFound");
+          throw new Error("User not found.");
         }
       },
     }),
   ],
   callbacks: {
-    async signIn({ user, account, profile }) {
-      console.log(user);
+    async signIn({ user, account }) {
       if (account?.provider === "google") {
         const existingUser = await prisma.user.findUnique({
           where: {
@@ -96,8 +100,8 @@ const authConfig: NextAuthConfig = {
     async jwt({ token, user }) {
       if (user) {
         token.id = user.id || "";
-        token.fname = user.fname;
-        token.lname = user.lname;
+        token.fname = user.fname || null;
+        token.lname = user.lname || null;
         token.role = user.role;
       }
       return token;
