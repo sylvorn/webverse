@@ -2,6 +2,8 @@ import RegisterForm from "@/sections/auth/register/register-form";
 import SignInViewPage from "@/sections/auth/view/warpper";
 import { Metadata } from "next";
 
+export const runtime = "edge";
+
 export const metadata: Metadata = {
   title: "Authentication | Register",
   description: "Create Your Account",

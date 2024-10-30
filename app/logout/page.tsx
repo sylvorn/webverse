@@ -1,5 +1,7 @@
 import { signOut } from "@/auth";
 
+export const runtime = "edge";
+
 export default function SignOutPage() {
   return (
     <div>

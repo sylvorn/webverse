@@ -3,6 +3,8 @@ import PageContainer from "@/components/layout/page-container";
 import OverViewPage from "@/sections/client/dashboard/overview/page";
 import { auth } from "@/auth";
 
+export const runtime = "edge";
+
 export default async function () {
   const session = await auth();
 

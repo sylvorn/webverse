@@ -1,6 +1,8 @@
 import ContactDetails from "@/sections/contact/contactDetails";
 import PageHead from "@/sections/page-header/pageHeader";
 
+export const runtime = "edge";
+
 export default function () {
   return (
     <>

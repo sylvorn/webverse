@@ -2,6 +2,8 @@ import LoginForm from "@/sections/auth/login/login-form";
 import SignInViewPage from "@/sections/auth/view/warpper";
 import { Metadata } from "next";
 
+export const runtime = "edge";
+
 export const metadata: Metadata = {
   title: "Authentication | Log In",
   description: "Login To Your Account",

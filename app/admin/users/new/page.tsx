@@ -3,7 +3,8 @@ import PageContainer from "@/components/layout/page-container";
 import { Breadcrumbs } from "@/components/ui/breadcrumbs";
 import { Separator } from "@/components/ui/seprator";
 import { Heading } from "@/components/ui/heading";
-// import NewServiceFormSkeleton from "./skeleton";
+
+export const runtime = "edge";
 
 const breadcrumbItems = [
   { title: "Dashboard", link: "/admin/dashboard" },

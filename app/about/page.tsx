@@ -2,6 +2,8 @@ import { Details } from "@/sections/about/details";
 import { Team } from "@/sections/about/team";
 import PageHead from "@/sections/page-header/pageHeader";
 
+export const runtime = "edge";
+
 export default function () {
   return (
     <>

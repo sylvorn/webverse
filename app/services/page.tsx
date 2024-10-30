@@ -1,6 +1,8 @@
 import PageHead from "@/sections/page-header/pageHeader";
 import Services from "@/sections/services/all-services";
 
+export const runtime = "edge";
+
 export default function () {
   return (
     <>

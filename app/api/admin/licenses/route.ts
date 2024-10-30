@@ -3,6 +3,8 @@ import { format } from "date-fns";
 import prisma from "@/lib/prisma";
 import { auth } from "@/auth";
 
+export const runtime = "edge";
+
 export async function GET() {
   const session = await auth();
   if (session?.user.role === "Admin") {

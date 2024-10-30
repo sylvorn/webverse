@@ -1,6 +1,8 @@
 import prisma from "@/lib/prisma";
 import { NextResponse } from "next/server";
 
+export const runtime = "edge";
+
 export async function GET() {
   const services = await prisma.service.findMany({
     select: {
