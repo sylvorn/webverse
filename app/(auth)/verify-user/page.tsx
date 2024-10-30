@@ -6,12 +6,16 @@ import { useSearchParams } from "next/navigation";
 import { Suspense } from "react";
 
 export default function VerifyAccountPage() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <VerifyAccountContent />
+    </Suspense>
+  );
+}
+
+function VerifyAccountContent() {
   const searchParams = useSearchParams();
   const email = searchParams.get("email");
 
-  return (
-    <Suspense fallback={<div>Loading...</div>}>
-      <SignInViewPage formComponent={<VerifyUserForm email={email || ""} />} quote="Technology is ruled by two types of people: those who manage what they do not understand, and those who understand what they do not manage." author="Make Trout" headText="Verify The Account" descText="Enter your otp below to verify your account" />
-    </Suspense>
-  );
+  return <SignInViewPage formComponent={<VerifyUserForm email={email || ""} />} quote="Technology is ruled by two types of people: those who manage what they do not understand, and those who understand what they do not manage." author="Make Trout" headText="Verify The Account" descText="Enter your OTP below to verify your account" />;
 }
