@@ -42,7 +42,7 @@
     "@tsparticles/slim": "^3.5.0",
     "@uiw/react-codemirror": "^4.23.6",
     "axios": "^1.7.7",
-    "bcrypt": "^5.1.1",
+    "bcryptjs": "^2.4.3",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
     "cobe": "^0.6.3",
@@ -74,6 +74,7 @@
   "devDependencies": {
     "@cloudflare/next-on-pages": "^1.13.5",
     "@types/bcrypt": "^5.0.2",
+    "@types/bcryptjs": "^2.4.6",
     "@types/node": "^20",
     "@types/nodemailer": "^6.4.16",
     "@types/react": "^18",

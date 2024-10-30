@@ -4,7 +4,7 @@ import generateOTP from "@/lib/generate-otp";
 import { RegisterSchema } from "@/schemas";
 import prisma from "@/lib/prisma";
 import dayjs from "dayjs";
-import bcrypt from "bcrypt";
+import bcrypt from "bcryptjs";
 import * as z from "zod";
 import { transporter } from "@/lib/nodemailer";
 

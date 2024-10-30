@@ -2,7 +2,7 @@
 
 import { securitySchema } from "@/schemas";
 import prisma from "@/lib/prisma";
-import bcrypt from "bcrypt";
+import bcrypt from "bcryptjs";
 import { auth } from "@/auth";
 import * as z from "zod";
 

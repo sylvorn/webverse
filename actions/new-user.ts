@@ -1,7 +1,7 @@
 "use server";
 import * as z from "zod";
 import prisma from "@/lib/prisma";
-import bcyrpt from "bcrypt";
+import bcyrpt from "bcryptjs";
 import { newUserSchema } from "@/schemas";
 
 export default async function newUser(values: z.infer<typeof newUserSchema>) {
