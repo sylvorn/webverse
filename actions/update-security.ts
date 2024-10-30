@@ -6,8 +6,6 @@ import bcrypt from "bcryptjs";
 import { auth } from "@/auth";
 import * as z from "zod";
 
-export const runtime = "edge";
-
 export default async function UpdateSecurity(values: z.infer<typeof securitySchema>) {
   const validatedFields = securitySchema.safeParse(values);
   if (!validatedFields.success) return { error: "Invalid Passwords" };

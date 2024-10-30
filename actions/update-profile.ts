@@ -4,8 +4,6 @@ import prisma from "@/lib/prisma";
 import * as z from "zod";
 import { auth } from "@/auth";
 
-export const runtime = "edge";
-
 export default async function UpdateProfile(values: z.infer<typeof profileSchema>) {
   const validatedFields = profileSchema.safeParse(values);
   if (!validatedFields.success) return { error: "Invalid Details" };

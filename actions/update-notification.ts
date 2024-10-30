@@ -4,8 +4,6 @@ import prisma from "@/lib/prisma";
 import * as z from "zod";
 import { auth } from "@/auth";
 
-export const runtime = "edge";
-
 export async function UpdateNotification(values: z.infer<typeof notificationSchema>) {
   const validatedFields = notificationSchema.safeParse(values);
   if (!validatedFields.success) return { error: "Invalid Options" };
