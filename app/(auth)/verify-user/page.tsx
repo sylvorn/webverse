@@ -1,6 +1,6 @@
 "use client";
 
-import SignInViewPage from "@/sections/auth/view/wrapper";
+import SignInViewPage from "@/sections/auth/view/warpper";
 import VerifyUserForm from "@/sections/auth/verify-user/verify-user-form";
 import { useSearchParams } from "next/navigation";
 import { Suspense } from "react";
