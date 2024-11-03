@@ -1,4 +1,4 @@
-import { MapPin, Phone, Mail, Facebook, Twitter, Instagram } from "lucide-react";
+import { MapPin, Phone, Mail, Linkedin, Github } from "lucide-react";
 
 export default function Details() {
   return (
@@ -19,16 +19,13 @@ export default function Details() {
         </div>
       </div>
       <div className="pt-4 border-t border-border">
-        <h3 className="text-lg font-semibold mb-3">Follow Us</h3>
+        <h3 className="text-lg font-semibold mb-3 bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400 bg-opacity-50">Follow Us</h3>
         <div className="flex space-x-4">
-          <a href="#" className="text-muted-foreground hover:text-primary">
-            <Facebook className="h-6 w-6" />
+          <a href="https://www.linkedin.com/company/prayam-infosoft" className="text-muted-foreground hover:text-primary">
+            <Linkedin className="h-6 w-6" />
           </a>
-          <a href="#" className="text-muted-foreground hover:text-primary">
-            <Twitter className="h-6 w-6" />
-          </a>
-          <a href="#" className="text-muted-foreground hover:text-primary">
-            <Instagram className="h-6 w-6" />
+          <a href="https://github.com/Prayam-Infosoft" className="text-muted-foreground hover:text-primary">
+            <Github className="h-6 w-6" />
           </a>
         </div>
       </div>

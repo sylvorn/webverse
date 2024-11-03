@@ -43,7 +43,7 @@ export function DataTable<TData, TValue>({ columns, data }: DataTableProps<TData
   return (
     <div className="w-full">
       <div className="flex items-center py-4">
-        <Input placeholder="Search names..." value={(table.getColumn("fname")?.getFilterValue() as string) ?? ""} onChange={(event) => table.getColumn("fname")?.setFilterValue(event.target.value)} className="max-w-sm" />
+        <Input placeholder="Search Email" value={(table.getColumn("email")?.getFilterValue() as string) ?? ""} onChange={(event) => table.getColumn("email")?.setFilterValue(event.target.value)} className="max-w-sm" />
         <Select value={(table.getColumn("role")?.getFilterValue() as string) ?? "all"} onValueChange={(value) => table.getColumn("role")?.setFilterValue(value === "all" ? "" : value)}>
           <SelectTrigger className="ml-4 w-[180px]">
             <SelectValue placeholder="Select a role" />
