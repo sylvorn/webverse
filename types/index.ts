@@ -42,3 +42,13 @@ export interface RecentSalesItemProps {
 export interface RecentSalesItemPropsArray {
   items: RecentSalesItemProps[];
 }
+
+export interface RecenetPaymentProps {
+  serviceName: string;
+  amount: number;
+  paymentDate: Date;
+}
+
+export interface RecenetPaymentPropsArray {
+  items: RecenetPaymentProps[];
+}

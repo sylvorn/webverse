@@ -6,11 +6,11 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 
 const breadcrumbItems = [
-  { title: "Dashboard", link: "/admin/dashboard" },
-  { title: "Licenses", link: "/admin/dashboard/licenses" },
+  { title: "Dashboard", link: "/client/dashboard" },
+  { title: "Licenses", link: "/client/licenses" },
 ];
 
-export default function LicensePageSkeleton() {
+export default function LicensesPageSkeleton() {
   return (
     <PageContainer scrollable>
       <div className="space-y-4">
@@ -21,7 +21,6 @@ export default function LicensePageSkeleton() {
             <Skeleton className="h-8 w-[100px]" />
             <Skeleton className="h-4 w-[200px]" />
           </div>
-          {/* <Skeleton className="h-10 w-[100px]" /> */}
         </div>
         <Separator />
 

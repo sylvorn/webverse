@@ -3,11 +3,11 @@ import { ColumnDef, ColumnFiltersState, SortingState, VisibilityState, flexRende
 import { DropdownMenu, DropdownMenuCheckboxItem, DropdownMenuContent, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
-import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 import { ChevronDown, Search, UserPlus } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import * as React from "react";
+import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 import Link from "next/link";
 
 interface DataTableProps<TData, TValue> {
@@ -43,7 +43,18 @@ export function DataTable<TData, TValue>({ columns, data }: DataTableProps<TData
   return (
     <div className="w-full">
       <div className="flex items-center py-4">
-        <Input placeholder="Search Services" value={(table.getColumn("name")?.getFilterValue() as string) ?? ""} onChange={(event) => table.getColumn("name")?.setFilterValue(event.target.value)} className="max-w-sm" />
+        <Input placeholder="Search License Key" value={(table.getColumn("licenseKey")?.getFilterValue() as string) ?? ""} onChange={(event) => table.getColumn("licenseKey")?.setFilterValue(event.target.value)} className="max-w-sm" />
+        <Select value={(table.getColumn("status")?.getFilterValue() as string) ?? "all"} onValueChange={(value) => table.getColumn("status")?.setFilterValue(value === "all" ? "" : value)}>
+          <SelectTrigger className="ml-4 w-[180px]">
+            <SelectValue placeholder="Select a status" />
+          </SelectTrigger>
+          <SelectContent>
+            <SelectItem value="all">All Status</SelectItem>
+            <SelectItem value="Active">Active</SelectItem>
+            <SelectItem value="Pending">Pending</SelectItem>
+            <SelectItem value="Expired">Expired</SelectItem>
+          </SelectContent>
+        </Select>
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
             <Button variant="outline" className="ml-auto">
@@ -95,12 +106,6 @@ export function DataTable<TData, TValue>({ columns, data }: DataTableProps<TData
                     </div>
                     <div className="text-lg font-medium">No results found</div>
                     <div className="text-sm text-muted-foreground">There are no users matching your search criteria.</div>
-                    <Link href="/admin/services/new">
-                      <Button>
-                        <UserPlus className="mr-2 h-4 w-4" />
-                        Add New Service
-                      </Button>
-                    </Link>
                   </div>
                 </TableCell>
               </TableRow>

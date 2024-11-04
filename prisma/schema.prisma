@@ -28,7 +28,9 @@ model User {
   securityEmails Boolean @default(true)
   updatesEmails Boolean @default(true)
   createdAt DateTime @default(now())  
-  updatedAt DateTime? 
+  updatedAt DateTime?
+  licenses    License[]
+  payments Payment[]
   subscriptions Subscription[]
 }
 model Service {
@@ -37,13 +39,14 @@ model Service {
   description String
   categoryId  String   
   category    Category @relation(fields: [categoryId], references: [id])
+  licenses    License[]
   features    Features[]
   plans       Plan[]
 }
 
 model Category {
   id          String   @unique @default(uuid())
-  name        String
+  name        String   @unique
   service     Service[]
 }
 model Features {
@@ -77,10 +80,14 @@ model Subscription {
 }
 model License {
   id          String   @unique @default(uuid()) 
-  licenseKey  String   
+  licenseKey  String   @unique
   expiryDate  DateTime 
   status      LicenseStatus 
   createdAt   DateTime @default(now())  
+  userId       String                   
+  user         User      @relation(fields: [userId], references: [id])
+  serviceId   String   
+  service     Service  @relation(fields: [serviceId], references: [id])
   subscriptionId String                 
   subscription Subscription @relation(fields: [subscriptionId], references: [id])
 }
@@ -90,7 +97,9 @@ model Payment {
   currency    String   
   paymentDate DateTime @default(now()) 
   status      PaymentStatus 
-  method      String?  
+  method      String?
+  userId      String
+  user        User @relation(fields: [userId], references: [id])
   subscriptionId String 
   subscription Subscription @relation(fields: [subscriptionId], references: [id]) 
   razorpayPaymentId String? 
