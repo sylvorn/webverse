@@ -17,6 +17,7 @@ import { Label } from "@/components/ui/label";
 import { newServiceSchema } from "@/schemas";
 import { useRouter } from "next/navigation";
 import * as z from "zod";
+import AddCategoryDialog from "../new-category-form/newCategoryForm";
 
 type FormData = z.infer<typeof newServiceSchema>;
 
@@ -136,6 +137,7 @@ export default function NewServiceForm({
 
               <div className="space-y-2">
                 <Label htmlFor="categoryId">Category</Label>
+
                 <Controller
                   name="categoryId"
                   control={control}
@@ -154,6 +156,7 @@ export default function NewServiceForm({
                     </Select>
                   )}
                 />
+                <AddCategoryDialog />
                 {errors.categoryId && <p className="text-destructive text-sm">{errors.categoryId.message}</p>}
               </div>
             </CardContent>
@@ -188,7 +191,7 @@ export default function NewServiceForm({
                             value={field.value}
                             extensions={[javascript({ jsx: true })]}
                             onChange={(value) => field.onChange(value)}
-                            className="border rounded-md overflow-hidden"
+                            className="border rounded-md"
                             basicSetup={{
                               lineNumbers: false,
                               foldGutter: false,
