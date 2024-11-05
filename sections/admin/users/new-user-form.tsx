@@ -13,10 +13,12 @@ import { newUserSchema } from "@/schemas";
 import FormError from "@/sections/auth/form-error";
 import FormSuccess from "@/sections/auth/form-success";
 import newUser from "@/actions/new-user";
+import { useRouter } from "next/navigation";
 
 type UserFormData = z.infer<typeof newUserSchema>;
 
 export default function NewUserForm() {
+  const router = useRouter();
   const [error, setError] = useState<string | undefined>("");
   const [success, setSucess] = useState<string | undefined>("");
   const [loading, startTransition] = useTransition();
@@ -34,7 +36,10 @@ export default function NewUserForm() {
     startTransition(async () => {
       const res = await newUser(data);
       if (res.error) setError(res.error);
-      if (res.success) setSucess(res.success);
+      if (res.success) {
+        setSucess(res.success);
+        router.push("/admin/users");
+      }
     });
   };
 
