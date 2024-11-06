@@ -8,10 +8,8 @@ import { columns, License } from "./columns";
 import fetcher from "@/fetcher";
 import useSWR from "swr";
 import PaymentPageSkeleton from "./skeleton";
-import LicenseKeyCard from "@/sections/client/licenses-card/licensesCard";
-import { Drawer, DrawerContent, DrawerHeader, DrawerTitle } from "@/components/ui/drawer";
-import { paymentColumns } from "../../../sections/admin/licenses/paymentsColumns";
-import { useState } from "react";
+import { Drawer } from "@/components/ui/drawer";
+import LicenseDetails from "@/sections/client/licenses/licenseDetails";
 
 const breadcrumbItems = [
   { title: "Dashboard", link: "/client/dashboard" },
@@ -19,7 +17,6 @@ const breadcrumbItems = [
 ];
 
 export default function () {
-  const [selectedLicense, setSelectedLicense] = useState<License | null>(null);
   const { data, isLoading } = useSWR("/api/client/licenses", fetcher);
 
   if (isLoading) return <PaymentPageSkeleton />;
@@ -35,19 +32,7 @@ export default function () {
         <Separator />
         <Drawer>
           <DataTable data={data} columns={columns} />
-
-          <DrawerContent>
-            <PageContainer scrollable>
-              <DrawerHeader>
-                <DrawerTitle>License Details</DrawerTitle>
-              </DrawerHeader>
-              <div className="p-1">
-                <LicenseKeyCard />
-                <h3 className="text-lg font-semibold">Payment History</h3>
-                <DataTable columns={paymentColumns} data={[]} />
-              </div>
-            </PageContainer>
-          </DrawerContent>
+          <LicenseDetails />
         </Drawer>
       </div>
     </PageContainer>
