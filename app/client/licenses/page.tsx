@@ -10,7 +10,7 @@ import useSWR from "swr";
 import PaymentPageSkeleton from "./skeleton";
 import LicenseKeyCard from "@/sections/client/licenses-card/licensesCard";
 import { Drawer, DrawerContent, DrawerHeader, DrawerTitle } from "@/components/ui/drawer";
-import { paymentColumns } from "./paymentsColumns";
+import { paymentColumns } from "../../../sections/admin/licenses/paymentsColumns";
 import { useState } from "react";
 
 const breadcrumbItems = [

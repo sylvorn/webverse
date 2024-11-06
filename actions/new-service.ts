@@ -38,5 +38,5 @@ export default async function newService(values: z.infer<typeof newServiceSchema
     })),
   });
 
-  return { success: "New Service Created" };
+  return { success: "New Service Created", newServiceId: newService.id };
 }

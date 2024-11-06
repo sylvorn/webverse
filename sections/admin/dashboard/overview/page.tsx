@@ -80,10 +80,10 @@ export default function OverViewPage() {
           </CardContent>
         </Card>
         <div className="col-span-4">
-          <AreaGraph description="Showing total sales till current month" title={"Category Wise Sales"} data={[]} />
+          <AreaGraph description="Showing total sales till current month" title={"Category Wise Sales"} data={data.monthlyCategorySums} />
         </div>
         <div className="col-span-4 md:col-span-3">
-          <PieGraph description="Showing total sales till current month" dtKey="sales" nmKey="software" title={"Software Sales"} data={[]} />
+          <PieGraph description="Showing total sales till current month" dtKey="sales" nmKey="service" title={"Software Sales"} data={data.serviceSales} />
         </div>
       </div>
     </>
