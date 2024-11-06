@@ -5,6 +5,7 @@ import { SessionProvider } from "next-auth/react";
 import localFont from "next/font/local";
 import type { Metadata } from "next";
 import "./globals.css";
+import { RecoilContextProvider } from "@/sections/layout/RecoilContextProvider";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -26,13 +27,15 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-        <SessionProvider>
-          <ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange>
-            <FloatingNavbar />
-            {children}
-            <Footer />
-          </ThemeProvider>
-        </SessionProvider>
+        <RecoilContextProvider>
+          <SessionProvider>
+            <ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange>
+              <FloatingNavbar />
+              {children}
+              <Footer />
+            </ThemeProvider>
+          </SessionProvider>
+        </RecoilContextProvider>
       </body>
     </html>
   );
