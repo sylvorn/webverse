@@ -1,17 +1,15 @@
 "use client";
 import PageContainer from "@/components/layout/page-container";
 import { Breadcrumbs } from "@/components/ui/breadcrumbs";
-import { buttonVariants } from "@/components/ui/button";
 import { Separator } from "@/components/ui/seprator";
 import { Heading } from "@/components/ui/heading";
+import { Drawer } from "@/components/ui/drawer";
 import LicensePageSkeleton from "./skeleton";
 import { DataTable } from "./data-table";
 import { columns } from "./columns";
-import { Plus } from "lucide-react";
-import { cn } from "@/lib/utils";
 import fetcher from "@/fetcher";
-import Link from "next/link";
 import useSWR from "swr";
+import LicenseDetails from "@/sections/admin/licenses/licensesDetails";
 
 const breadcrumbItems = [
   { title: "Dashboard", link: "/admin/dashboard" },
@@ -32,7 +30,10 @@ export default function () {
           <Heading title={`Licenses - ${data.length}`} description="Manage Licenses Details" />
         </div>
         <Separator />
-        <DataTable data={data} columns={columns} />
+        <Drawer>
+          <DataTable data={data} columns={columns} />
+          <LicenseDetails />
+        </Drawer>
       </div>
     </PageContainer>
   );
