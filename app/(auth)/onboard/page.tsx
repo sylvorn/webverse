@@ -7,14 +7,13 @@ import * as z from "zod";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Checkbox } from "@/components/ui/checkbox";
-import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
-import { ChevronDown, ChevronUp, User, Building, Info, Check } from "lucide-react";
+import { ChevronDown, User, Building, Info, Check } from "lucide-react";
 
 const companySchema = z.object({
   companyName: z.string().min(1, "Company name is required"),
@@ -102,7 +101,7 @@ export default function CreativeMultiCompanyOnboardingForm() {
       <Card className="w-full">
         <CardHeader>
           <CardTitle className="text-3xl font-bold text-primary">Business Owner Onboarding</CardTitle>
-          <CardDescription className="text-lg text-muted-foreground">Welcome to our IT services. Let's get to know you and your businesses.</CardDescription>
+          <CardDescription className="text-lg text-muted-foreground">Welcome to our IT services. Let&apos;s get to know you and your businesses.</CardDescription>
         </CardHeader>
         <CardContent>
           <div className="mb-8 flex justify-between">

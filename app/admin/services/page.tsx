@@ -18,7 +18,7 @@ const breadcrumbItems = [
   { title: "Services", link: "/admin/services" },
 ];
 
-export default function () {
+export default function AdminServicePage() {
   const { data, isLoading } = useSWR("/api/admin/services", fetcher);
 
   if (isLoading) return <ServicePageSkeleton />;

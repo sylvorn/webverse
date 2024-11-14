@@ -16,7 +16,7 @@ const breadcrumbItems = [
   { title: "Licenses", link: "/admin/licenses" },
 ];
 
-export default function () {
+export default function AdminLicensePage() {
   const { data, isLoading } = useSWR("/api/admin/licenses", fetcher);
 
   if (isLoading) return <LicensePageSkeleton />;
