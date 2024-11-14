@@ -18,7 +18,7 @@ const breadcrumbItems = [
   { title: "Users", link: "/admin/users" },
 ];
 
-export default function () {
+export default function AdminUsersPage() {
   const { data, isLoading } = useSWR("/api/admin/users", fetcher);
 
   if (isLoading) return <UserPageSkeleton />;

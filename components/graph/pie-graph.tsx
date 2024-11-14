@@ -35,17 +35,17 @@ const generateChartConfig = (data: ChartData[]) => {
 };
 
 export function PieGraph({ title, description = "Showing total visitors for the last 6 months", data, dtKey, nmKey }: PieGraphProps) {
+  const chartConfig = React.useMemo(() => generateChartConfig(data), [data]);
+  const totalVisitors = React.useMemo(() => {
+    return data.reduce((acc, curr) => acc + (curr[dtKey] as number), 0);
+  }, [data, dtKey]);
+
+  const dataWithColors = data.map((d, index) => ({
+    ...d,
+    fill: generateColor(index),
+  }));
+
   if (data.length > 0) {
-    const chartConfig = React.useMemo(() => generateChartConfig(data), [data]);
-    const totalVisitors = React.useMemo(() => {
-      return data.reduce((acc, curr) => acc + (curr[dtKey] as number), 0);
-    }, [data, dtKey]);
-
-    const dataWithColors = data.map((d, index) => ({
-      ...d,
-      fill: generateColor(index),
-    }));
-
     return (
       <Card className="flex flex-col">
         <CardHeader className="items-center pb-0">

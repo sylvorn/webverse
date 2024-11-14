@@ -42,7 +42,7 @@ export const Timeline = ({ data }: { data: TimelineEntry }) => {
   const options: HTMLReactParserOptions = {
     replace: (domNode) => {
       if (domNode instanceof Element) {
-        const attribs = domNode.attribs;
+        const attribs = domNode.attributes as any;
         if (attribs && attribs.class) {
           attribs.className = attribs.class;
           delete attribs.class;

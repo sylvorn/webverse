@@ -49,7 +49,7 @@ const NavItemButton = React.memo(({ onClick, children }: { onClick: () => void; 
 
 NavItemButton.displayName = "NavItemButton";
 
-export function DashboardNav({ items, setOpen, isMobileNav = false }: DashboardNavProps) {
+export function DashboardNav({ items, setOpen }: DashboardNavProps) {
   const path = usePathname();
   const { isMinimized } = useSidebar();
   const [expandedItems, setExpandedItems] = useState<Set<string>>(new Set());

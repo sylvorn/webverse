@@ -9,10 +9,12 @@ import { useForm } from "react-hook-form";
 import { z } from "zod";
 import FormError from "../form-error";
 import { useTransition, useState } from "react";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import verifyUser from "@/actions/verify-user";
 
-export default function verifyUserForm({ email }: { email: string }) {
+export default function verifyUserForm() {
+  const searchParams = useSearchParams();
+  const email = searchParams.get("email") ?? "";
   const [error, setError] = useState<string | undefined>("");
   const [loading, startTransition] = useTransition();
   const router = useRouter();
@@ -20,7 +22,7 @@ export default function verifyUserForm({ email }: { email: string }) {
     resolver: zodResolver(verifyUserSchema),
     defaultValues: {
       otp: "",
-      email: email,
+      email,
     },
   });
 

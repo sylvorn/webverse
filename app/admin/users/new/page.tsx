@@ -3,7 +3,6 @@ import PageContainer from "@/components/layout/page-container";
 import { Breadcrumbs } from "@/components/ui/breadcrumbs";
 import { Separator } from "@/components/ui/seprator";
 import { Heading } from "@/components/ui/heading";
-// import NewServiceFormSkeleton from "./skeleton";
 
 const breadcrumbItems = [
   { title: "Dashboard", link: "/admin/dashboard" },
@@ -11,7 +10,7 @@ const breadcrumbItems = [
   { title: "New", link: "/admin/services/new" },
 ];
 
-export default function () {
+export default function AdminNewUserPage() {
   return (
     <PageContainer scrollable>
       <div className="space-y-4">

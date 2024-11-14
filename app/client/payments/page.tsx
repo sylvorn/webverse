@@ -14,7 +14,7 @@ const breadcrumbItems = [
   { title: "Payments", link: "/client/payments" },
 ];
 
-export default function () {
+export default function ClientPaymentsPage() {
   const { data, isLoading } = useSWR("/api/client/payments", fetcher);
 
   if (isLoading) return <PaymentPageSkeleton />;

@@ -1,7 +1,7 @@
 import PageHead from "@/sections/page-header/pageHeader";
 import Services from "@/sections/services/all-services";
 
-export default function () {
+export default function ServicesPage() {
   return (
     <>
       <PageHead text={"Transforming ideas into reality with our expertise."} highlightedText={"Explore our services and find your solution."} />

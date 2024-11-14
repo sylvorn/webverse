@@ -40,8 +40,8 @@ const authConfig: NextAuthConfig = {
             if (isPasswordValid) {
               return {
                 id: user.id,
-                fname: user.fname,
-                lname: user.lname,
+                fname: user.fname ?? "",
+                lname: user.lname ?? "",
                 email: user.email,
                 role: user.role,
               };

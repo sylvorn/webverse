@@ -1,7 +1,7 @@
 import PageContainer from "@/components/layout/page-container";
 import ProfilePage from "@/sections/profile/profilePage";
 
-export default function () {
+export default function AdminProfilePage() {
   return (
     <PageContainer scrollable>
       <div className="space-y-2">

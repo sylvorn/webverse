@@ -4,7 +4,7 @@ import { Breadcrumbs } from "@/components/ui/breadcrumbs";
 import { Separator } from "@/components/ui/seprator";
 import { Heading } from "@/components/ui/heading";
 import { DataTable } from "./data-table";
-import { columns, License } from "./columns";
+import { columns } from "./columns";
 import fetcher from "@/fetcher";
 import useSWR from "swr";
 import PaymentPageSkeleton from "./skeleton";
@@ -16,7 +16,7 @@ const breadcrumbItems = [
   { title: "Licenses", link: "/client/licenses" },
 ];
 
-export default function () {
+export default function ClientLicensePage() {
   const { data, isLoading } = useSWR("/api/client/licenses", fetcher);
 
   if (isLoading) return <PaymentPageSkeleton />;

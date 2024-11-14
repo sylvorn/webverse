@@ -1,13 +1,11 @@
 "use client";
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
-import { ArrowUpDown, MoreHorizontal } from "lucide-react";
-import { DrawerTrigger } from "@/components/ui/drawer";
+
+import { ArrowUpDown } from "lucide-react";
 import { ColumnDef } from "@tanstack/react-table";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import dayjs from "dayjs";
-import { useSetRecoilState } from "recoil";
-import { selectedLicense } from "@/store/atoms";
+import ClientLicenseDropDownMenu from "@/sections/client/licenses/ClientLicensDropDownMenu";
 
 export type License = {
   id: string;
@@ -93,27 +91,7 @@ export const columns: ColumnDef<License>[] = [
     id: "actions",
     header: "Actions",
     cell: ({ row }) => {
-      const setSelectedLicense = useSetRecoilState(selectedLicense);
-      const license = row.original;
-      return (
-        <DropdownMenu>
-          <DropdownMenuTrigger asChild>
-            <Button variant="ghost" className="h-8 w-8 p-0">
-              <span className="sr-only">Open menu</span>
-              <MoreHorizontal className="h-4 w-4" />
-            </Button>
-          </DropdownMenuTrigger>
-          <DropdownMenuContent align="end">
-            <DropdownMenuLabel>Actions</DropdownMenuLabel>
-            <DropdownMenuItem onClick={() => console.log("Renew", license)}>Renew</DropdownMenuItem>
-            <DropdownMenuItem onClick={() => setSelectedLicense(row.getValue("id"))}>
-              <DrawerTrigger asChild>
-                <span>View Details</span>
-              </DrawerTrigger>
-            </DropdownMenuItem>
-          </DropdownMenuContent>
-        </DropdownMenu>
-      );
+      return <ClientLicenseDropDownMenu row={row} />;
     },
   },
 ];
