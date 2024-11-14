@@ -77,7 +77,7 @@ export default function NewServiceForm({
         if (result.error) {
           setError(result.error);
         } else if (result.success) {
-          router.push("/admin/services/new");
+          router.push(`/admin/services/${result.newServiceId}`);
         } else {
           setError("An unexpected error occurred. Please try again.");
         }

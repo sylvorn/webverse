@@ -6,8 +6,11 @@ import { ColumnDef } from "@tanstack/react-table";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import dayjs from "dayjs";
+import { useSetRecoilState } from "recoil";
+import { selectedLicense } from "@/store/atoms";
 
 export type License = {
+  id: string;
   serviceName: string;
   licenseKey: string;
   status: "Pending" | "Active" | "Expired";
@@ -18,6 +21,13 @@ export type License = {
 };
 
 export const columns: ColumnDef<License>[] = [
+  {
+    accessorKey: "id",
+    header: "id",
+    cell: ({ row }) => {
+      return row.getValue<string>("id").slice(0, 7) + "...";
+    },
+  },
   {
     accessorKey: "serviceName",
     header: ({ column }) => {
@@ -47,7 +57,7 @@ export const columns: ColumnDef<License>[] = [
       );
     },
     cell: ({ row }) => {
-      return dayjs(row.getValue("expiryDate")).format("D MMM YYYY").toString();
+      return dayjs(row.getValue("expiryDate")).format("DD MMM YYYY").toString();
     },
   },
   {
@@ -61,7 +71,7 @@ export const columns: ColumnDef<License>[] = [
       );
     },
     cell: ({ row }) => {
-      return dayjs(row.getValue("createdAt")).format("D MMM YYYY").toString();
+      return dayjs(row.getValue("createdAt")).format("DD MMM YYYY").toString();
     },
   },
   {
@@ -83,6 +93,7 @@ export const columns: ColumnDef<License>[] = [
     id: "actions",
     header: "Actions",
     cell: ({ row }) => {
+      const setSelectedLicense = useSetRecoilState(selectedLicense);
       const license = row.original;
       return (
         <DropdownMenu>
@@ -95,7 +106,7 @@ export const columns: ColumnDef<License>[] = [
           <DropdownMenuContent align="end">
             <DropdownMenuLabel>Actions</DropdownMenuLabel>
             <DropdownMenuItem onClick={() => console.log("Renew", license)}>Renew</DropdownMenuItem>
-            <DropdownMenuItem>
+            <DropdownMenuItem onClick={() => setSelectedLicense(row.getValue("id"))}>
               <DrawerTrigger asChild>
                 <span>View Details</span>
               </DrawerTrigger>

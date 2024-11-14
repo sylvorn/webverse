@@ -1,6 +1,7 @@
 "use client";
 import { CardBody, CardContainer, CardItem } from "@/components/ui/3d-card";
 import { Badge } from "@/components/ui/badge";
+import dayjs from "dayjs";
 
 interface LicenseKeyCardProps {
   softwareName?: string;
@@ -40,10 +41,10 @@ export default function LicenseKeyCard({ softwareName = "Awesome Software", lice
           <div>
             <div className="grid grid-cols-2 gap-2 mb-4">
               <CardItem translateZ="40" className="text-white text-xs">
-                <span className="font-semibold">Buy Date:</span> {buyDate}
+                <span className="font-semibold">Buy Date:</span> {dayjs(buyDate).format("DD MMM YYYY").toString()}
               </CardItem>
               <CardItem translateZ="40" className="text-white text-xs">
-                <span className="font-semibold">Expiry:</span> {expiryDate}
+                <span className="font-semibold">Expiry:</span> {dayjs(expiryDate).format("DD MMM YYYY").toString()}
               </CardItem>
               <CardItem translateZ="40" className="text-white text-xs">
                 <span className="font-semibold">Plan:</span> {planName}
