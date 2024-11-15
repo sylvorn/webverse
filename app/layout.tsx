@@ -19,8 +19,30 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Prayam Infosoft",
-  description: "Next Gen Services Providers",
+  title: "Prayam Infosoft - Innovative IT Solutions and SaaS Development",
+  description: "Prayam Infosoft delivers cutting-edge IT services, custom software development, and SaaS solutions. Empower your business with our expertise.",
+  keywords: ["Prayam Infosoft", "IT Solutions", "SaaS Development", "Custom Software", "Technology Services"],
+  category: "IT Solutions, Technology, Software Development",
+  applicationName: "Prayam Infosoft - IT Solutions & SaaS Development",
+  creator: "Prayam Infosoft",
+  authors: [
+    {
+      name: "Ravi Sorathiya",
+      url: "https://www.linkedin.com/in/ravi-vaniya-319815302",
+    },
+    {
+      name: "Jenil Desai",
+      url: "https://www.linkedin.com/in/desaijenil",
+    },
+  ],
+  openGraph: {
+    title: "Prayam Infosoft - Innovative IT Solutions",
+    description: "Explore top-notch IT services, software development, and SaaS solutions by Prayam Infosoft.",
+    siteName: "Prayam Infosoft",
+    countryName: "india",
+    url: "https://www.prayaminfosoft.com",
+    type: "website",
+  },
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {

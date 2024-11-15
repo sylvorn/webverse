@@ -20,7 +20,7 @@ export function Footer() {
         <div className="grid grid-cols-1 gap-8 md:grid-cols-4 justify-items-center">
           <div className="flex flex-col items-start">
             <Link href="/" className="flex items-center space-x-2">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-6 w-6">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-6 w-6">
                 <circle cx="12" cy="12" r="10" />
               </svg>
               <span className="font-bold text-xl text-white">Prayam Infosoft</span>

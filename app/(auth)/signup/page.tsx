@@ -4,8 +4,14 @@ import { Metadata } from "next";
 import { Suspense } from "react";
 
 export const metadata: Metadata = {
-  title: "Authentication | Register",
-  description: "Create Your Account",
+  title: "Signup to Prayam Infosoft - Start Your Journey",
+  description: "Create your account with Prayam Infosoft to access our services and solutions. Quick and easy registration.",
+  keywords: ["Signup Prayam Infosoft", "User Registration", "IT Services"],
+  category: "Signup, User Registration",
+  openGraph: {
+    title: "Signup to Prayam Infosoft",
+    description: "Sign up for quick access to premium IT services and solutions.",
+  },
 };
 
 export default function Page() {
