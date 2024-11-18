@@ -9,7 +9,7 @@ export default function ServiceSection() {
         <h1 className="text-3xl font-bold">Our Services</h1>
         <p className="text-gray-400">Delivering innovative IT solutions for your business needs.</p>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-4 w-full">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-7xl mx-auto">
         <ServiceCard color="#A9D6E5" title="Website" description="Create professional, responsive websites tailored to your business needs." features={["Responsive design", "SEO-friendly structure", "Fast performance"]} />
         <ServiceCard color="#89C2D9" title="E-Commerce" description="Design intuitive e-commerce platforms that drive conversions." features={["Optimized payment gateways", "User-friendly shopping experience", "Seamless integrations"]} />
         <ServiceCard color="#61A5C2" title="CMS" description="Streamline content management with tailored CMS solutions." features={["User-friendly interface", "Customizable workflows", "Secure data handling"]} />
