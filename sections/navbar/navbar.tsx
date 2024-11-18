@@ -10,8 +10,8 @@ export function FloatingNavbar() {
       icon: <IconHome className="h-4 w-4 text-neutral-500 dark:text-white" />,
     },
     {
-      name: "Services",
-      link: "/services",
+      name: "Solutions",
+      link: "/solutions",
       icon: <IconBriefcase className="h-4 w-4 text-neutral-500 dark:text-white" />,
     },
     {

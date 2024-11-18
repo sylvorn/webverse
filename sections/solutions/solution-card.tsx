@@ -12,7 +12,7 @@ export interface solutionCardProps {
 export default function SolutionCard({ id, name, description }: solutionCardProps) {
   const router = useRouter();
   function handleClick() {
-    router.push(`/services/${id}`);
+    router.push(`/solutions/${id}`);
   }
 
   return (

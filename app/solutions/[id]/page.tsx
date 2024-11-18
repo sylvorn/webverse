@@ -5,7 +5,7 @@ import useSWR from "swr";
 import { TimelineSkeleton } from "./skeleton";
 
 export default function SolutionPage({ params }: { params: { id: string } }) {
-  const { data, isLoading, error } = useSWR(`/api/services/${params.id}`, fetcher);
+  const { data, isLoading, error } = useSWR(`/api/solutions/${params.id}`, fetcher);
 
   if (isLoading) return <TimelineSkeleton />;
   if (error) return "Error Featching Details";
