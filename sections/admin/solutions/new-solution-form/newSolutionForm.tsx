@@ -10,20 +10,20 @@ import { Textarea } from "@/components/ui/textarea";
 import FormError from "@/sections/auth/form-error";
 import { useState, useTransition } from "react";
 import { Button } from "@/components/ui/button";
-import newService from "@/actions/new-service";
+import newSolution from "@/actions/new-solution";
 import CodeMirror from "@uiw/react-codemirror";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { newServiceSchema } from "@/schemas";
+import { newSolutionSchema } from "@/schemas";
 import { useRouter } from "next/navigation";
 import * as z from "zod";
 import AddCategoryDialog from "../new-category-form/newCategoryForm";
 
-type FormData = z.infer<typeof newServiceSchema>;
+type FormData = z.infer<typeof newSolutionSchema>;
 
 const steps = ["Basic Details", "Features", "Plans"];
 
-export default function NewServiceForm({
+export default function NewSolutionForm({
   categories,
 }: {
   categories: {
@@ -43,7 +43,7 @@ export default function NewServiceForm({
     formState: { errors, isSubmitting },
     trigger,
   } = useForm<FormData>({
-    resolver: zodResolver(newServiceSchema),
+    resolver: zodResolver(newSolutionSchema),
     defaultValues: {
       features: [{ title: "", content: "<>Have only 1 parent element</>" }],
       plans: [{ name: "", description: "", price: 0, duration: 1 }],
@@ -73,11 +73,11 @@ export default function NewServiceForm({
     console.log(data);
     startTransition(async () => {
       try {
-        const result = await newService(data);
+        const result = await newSolution(data);
         if (result.error) {
           setError(result.error);
         } else if (result.success) {
-          router.push(`/admin/services/${result.newServiceId}`);
+          router.push(`/admin/services/${result.newSoultionId}`);
         } else {
           setError("An unexpected error occurred. Please try again.");
         }

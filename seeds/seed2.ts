@@ -17,8 +17,8 @@ async function main() {
     },
   });
 
-  // Additional services under different categories
-  const customSoftwareService = await prisma.service.create({
+  // Additional solutions under different categories
+  const customSoftwaresolution = await prisma.solution.create({
     data: {
       name: "Custom Software Solutions",
       description: "Tailored software development for businesses",
@@ -26,7 +26,7 @@ async function main() {
     },
   });
 
-  const healthcareAppService = await prisma.service.create({
+  const healthcareAppsolution = await prisma.solution.create({
     data: {
       name: "Healthcare Management App",
       description: "App to manage patient records and scheduling",
@@ -41,7 +41,7 @@ async function main() {
       description: "Enterprise-level access with extended features",
       price: 10000,
       duration: 24, // in months
-      serviceId: customSoftwareService.id,
+      solutionId: customSoftwaresolution.id,
     },
   });
 
@@ -51,7 +51,7 @@ async function main() {
       description: "Free trial plan for new customers",
       price: 0,
       duration: 1, // in months
-      serviceId: healthcareAppService.id,
+      solutionId: healthcareAppsolution.id,
     },
   });
 
@@ -136,7 +136,7 @@ async function main() {
         expiryDate: new Date(new Date().setDate(new Date().getDate() + 30)), // Expires in 30 days
         status: "Active",
         userId: user3.id,
-        serviceId: customSoftwareService.id,
+        solutionId: customSoftwaresolution.id,
         subscriptionId: subscription4.id,
       },
       {
@@ -144,7 +144,7 @@ async function main() {
         expiryDate: new Date(new Date().setDate(new Date().getDate() - 10)), // Expired 10 days ago
         status: "Expired",
         userId: user4.id,
-        serviceId: healthcareAppService.id,
+        solutionId: healthcareAppsolution.id,
         subscriptionId: subscription5.id,
       },
     ],

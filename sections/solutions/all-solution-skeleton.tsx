@@ -1,7 +1,7 @@
 import { GlowingStarsBackgroundCard } from "@/components/ui/glowing-stars";
 import { Skeleton } from "@/components/ui/skeleton";
 
-export default function AllServicesSkeleton() {
+export default function AllSolutionSkeleton() {
   return (
     <div className="py-20 lg:py-20 bg-black antialiased">
       <div className="text-center text-white mb-3">

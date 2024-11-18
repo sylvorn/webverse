@@ -10,7 +10,7 @@ const breadcrumbItems = [
   { title: "Services", link: "/admin/services" },
 ];
 
-export default function ServicePageSkeleton() {
+export default function SolutionsPageSkeleton() {
   return (
     <PageContainer scrollable>
       <div className="space-y-4">

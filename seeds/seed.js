@@ -58,7 +58,7 @@ function main() {
                         })];
                 case 2:
                     itServicesCategory = _a.sent();
-                    return [4 /*yield*/, prisma.service.create({
+                    return [4 /*yield*/, prisma.solution.create({
                             data: {
                                 name: "School Management System",
                                 description: "A comprehensive school management software",
@@ -67,7 +67,7 @@ function main() {
                         })];
                 case 3:
                     schoolManagementService = _a.sent();
-                    return [4 /*yield*/, prisma.service.create({
+                    return [4 /*yield*/, prisma.solution.create({
                             data: {
                                 name: "Library Management System",
                                 description: "Software to manage library operations",
@@ -76,7 +76,7 @@ function main() {
                         })];
                 case 4:
                     libraryManagementService = _a.sent();
-                    return [4 /*yield*/, prisma.service.create({
+                    return [4 /*yield*/, prisma.solution.create({
                             data: {
                                 name: "Web Development Service",
                                 description: "Full-stack web development services",
@@ -91,17 +91,17 @@ function main() {
                                 {
                                     title: "Attendance Tracking",
                                     content: "Track student attendance",
-                                    serviceId: schoolManagementService.id,
+                                    solutionId: schoolManagementService.id,
                                 },
                                 {
                                     title: "Library Catalog",
                                     content: "Manage and search books",
-                                    serviceId: libraryManagementService.id,
+                                    solutionId: libraryManagementService.id,
                                 },
                                 {
                                     title: "Responsive Design",
                                     content: "Fully responsive web pages",
-                                    serviceId: webDevService.id,
+                                    solutionId: webDevService.id,
                                 },
                             ],
                         })];
@@ -114,7 +114,7 @@ function main() {
                                 description: "Affordable plan for small schools",
                                 price: 500,
                                 duration: 6, // in months
-                                serviceId: schoolManagementService.id,
+                                solutionId: schoolManagementService.id,
                             },
                         })];
                 case 7:
@@ -125,7 +125,7 @@ function main() {
                                 description: "Extended features for large institutions",
                                 price: 2000,
                                 duration: 12, // in months
-                                serviceId: schoolManagementService.id,
+                                solutionId: schoolManagementService.id,
                             },
                         })];
                 case 8:
@@ -136,7 +136,7 @@ function main() {
                                 description: "Subscription for ongoing web development",
                                 price: 1000,
                                 duration: 1, // in months
-                                serviceId: webDevService.id,
+                                solutionId: webDevService.id,
                             },
                         })];
                 case 9:
@@ -223,7 +223,7 @@ function main() {
                                     expiryDate: new Date(new Date().setFullYear(new Date().getFullYear() + 1)),
                                     status: "Active",
                                     userId: user1.id,
-                                    serviceId: schoolManagementService.id,
+                                    solutionId: schoolManagementService.id,
                                     subscriptionId: subscription1.id,
                                 },
                                 {
@@ -231,7 +231,7 @@ function main() {
                                     expiryDate: new Date(new Date().setFullYear(new Date().getFullYear() - 1)),
                                     status: "Expired",
                                     userId: user2.id,
-                                    serviceId: libraryManagementService.id,
+                                    solutionId: libraryManagementService.id,
                                     subscriptionId: subscription2.id,
                                 },
                             ],

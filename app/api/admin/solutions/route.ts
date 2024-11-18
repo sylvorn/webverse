@@ -6,7 +6,7 @@ export async function GET() {
   const session = await auth();
 
   if (session?.user.role === "Admin") {
-    const services = await prisma.service.findMany({
+    const services = await prisma.solution.findMany({
       select: {
         id: true,
         name: true,
@@ -27,11 +27,11 @@ export async function GET() {
       },
     });
 
-    const formattedServices = services.map((service) => ({
-      id: service.id,
-      name: service.name,
-      noOfPlans: service._count.plans,
-      noOfSubscriptions: service.plans.reduce((total, plan) => total + plan._count.subscriptions, 0),
+    const formattedServices = services.map((solution) => ({
+      id: solution.id,
+      name: solution.name,
+      noOfPlans: solution._count.plans,
+      noOfSubscriptions: solution.plans.reduce((total, plan) => total + plan._count.subscriptions, 0),
     }));
 
     return NextResponse.json(formattedServices);

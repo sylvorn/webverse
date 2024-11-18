@@ -1,15 +1,15 @@
 "use client";
-import ServiceCard, { serviceCardProps } from "./service-card";
-import AllServicesSkeleton from "./all-services-skeleton";
+import SolutionCard, { solutionCardProps } from "./solution-card";
+import AllSolutionSkeleton from "./all-solution-skeleton";
 import axios from "axios";
 import useSWR from "swr";
 
-const fetcher = (url: string) => axios.get(url).then((res) => res.data) as Promise<serviceCardProps[]>;
+const fetcher = (url: string) => axios.get(url).then((res) => res.data) as Promise<solutionCardProps[]>;
 
-export default function Services() {
-  const { data, isLoading } = useSWR("/api/services", fetcher);
+export default function Solutions() {
+  const { data, isLoading } = useSWR("/api/solutions", fetcher);
 
-  if (isLoading || !data) return <AllServicesSkeleton />;
+  if (isLoading || !data) return <AllSolutionSkeleton />;
 
   return (
     <div className="py-20 lg:py-20 bg-black antialiased">
@@ -19,8 +19,8 @@ export default function Services() {
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mx-auto md:px-8 w-full p-6">
-        {data.map((s: serviceCardProps) => {
-          return <ServiceCard id={s.id} name={s.name} description={s.description} />;
+        {data.map((s: solutionCardProps) => {
+          return <SolutionCard id={s.id} name={s.name} description={s.description} />;
         })}
       </div>
     </div>

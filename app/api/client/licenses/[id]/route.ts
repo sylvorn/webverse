@@ -32,7 +32,7 @@ export async function GET(req: NextRequest, { params }: { params: { id: string }
           },
           plan: {
             select: {
-              service: {
+              solution: {
                 select: {
                   name: true,
                 },
@@ -54,7 +54,7 @@ export async function GET(req: NextRequest, { params }: { params: { id: string }
     expiryDate: licenseDetails.expiryDate,
     status: licenseDetails.status,
     planName: licenseDetails.subscription.plan.name,
-    serviceName: licenseDetails.subscription.plan.service.name,
+    serviceName: licenseDetails.subscription.plan.solution.name,
     paymentsHistory: licenseDetails.subscription.payments.map((ps) => ({
       id: ps.id,
       amount: ps.amount,

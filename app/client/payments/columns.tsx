@@ -6,7 +6,7 @@ import dayjs from "dayjs";
 import { ArrowUpDown } from "lucide-react";
 
 export type License = {
-  serviceName: string;
+  solutionName: string;
   amount: number;
   status: "Pending" | "Completed" | "Failed";
   paymentDate: Date;
@@ -15,11 +15,11 @@ export type License = {
 
 export const columns: ColumnDef<License>[] = [
   {
-    accessorKey: "serviceName",
+    accessorKey: "solutionName",
     header: ({ column }) => {
       return (
         <Button variant="ghost" onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}>
-          Service Name
+          Solution Name
           <ArrowUpDown className="ml-2 h-4 w-4" />
         </Button>
       );

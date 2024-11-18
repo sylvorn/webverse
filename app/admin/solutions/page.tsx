@@ -11,17 +11,17 @@ import { cn } from "@/lib/utils";
 import fetcher from "@/fetcher";
 import Link from "next/link";
 import useSWR from "swr";
-import ServicePageSkeleton from "./skeleton";
+import SolutionsPageSkeleton from "./skeleton";
 
 const breadcrumbItems = [
   { title: "Dashboard", link: "/admin/dashboard" },
-  { title: "Services", link: "/admin/services" },
+  { title: "Solutions", link: "/admin/solutions" },
 ];
 
 export default function AdminServicePage() {
-  const { data, isLoading } = useSWR("/api/admin/services", fetcher);
+  const { data, isLoading } = useSWR("/api/admin/solutions", fetcher);
 
-  if (isLoading) return <ServicePageSkeleton />;
+  if (isLoading) return <SolutionsPageSkeleton />;
 
   return (
     <PageContainer scrollable>
@@ -29,9 +29,9 @@ export default function AdminServicePage() {
         <Breadcrumbs items={breadcrumbItems} />
 
         <div className="flex items-start justify-between">
-          <Heading title={`Services - ${data.length}`} description="Manage Services Details" />
+          <Heading title={`Solutions - ${data.length}`} description="Manage Solutions Details" />
 
-          <Link href={"/admin/services/new"} className={cn(buttonVariants({ variant: "default" }))}>
+          <Link href={"/admin/solutions/new"} className={cn(buttonVariants({ variant: "default" }))}>
             <Plus className="mr-2 h-4 w-4" /> Add New
           </Link>
         </div>

@@ -3,13 +3,13 @@ import React from "react";
 import { GlowingStarsBackgroundCard, GlowingStarsDescription, GlowingStarsTitle } from "@/components/ui/glowing-stars";
 import { useRouter } from "next/navigation";
 
-export interface serviceCardProps {
+export interface solutionCardProps {
   id: string;
   name: string;
   description: string;
 }
 
-export default function ServiceCard({ id, name, description }: serviceCardProps) {
+export default function SolutionCard({ id, name, description }: solutionCardProps) {
   const router = useRouter();
   function handleClick() {
     router.push(`/services/${id}`);

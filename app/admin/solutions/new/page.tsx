@@ -1,23 +1,24 @@
 "use client";
-import NewServiceForm from "@/sections/admin/service/new-service-form/newServiceForm";
+
+import NewSolutionForm from "@/sections/admin/solutions/new-solution-form/newSolutionForm";
 import PageContainer from "@/components/layout/page-container";
 import { Breadcrumbs } from "@/components/ui/breadcrumbs";
 import { Separator } from "@/components/ui/seprator";
 import { Heading } from "@/components/ui/heading";
-import NewServiceFormSkeleton from "./skeleton";
+import NewSolutionFormSkeleton from "./skeleton";
 import fetcher from "@/fetcher";
 import useSWR from "swr";
 
 const breadcrumbItems = [
   { title: "Dashboard", link: "/admin/dashboard" },
-  { title: "Services", link: "/admin/services" },
-  { title: "New", link: "/admin/services/new" },
+  { title: "Solutions", link: "/admin/solutions" },
+  { title: "New", link: "/admin/solutions/new" },
 ];
 
-export default function AdminNewServicePage() {
+export default function AdminNewSolutionPage() {
   const { data, isLoading } = useSWR("/api/admin/categories", fetcher);
 
-  if (isLoading) return <NewServiceFormSkeleton />;
+  if (isLoading) return <NewSolutionFormSkeleton />;
 
   return (
     <PageContainer scrollable>
@@ -25,10 +26,10 @@ export default function AdminNewServicePage() {
         <Breadcrumbs items={breadcrumbItems} />
 
         <div className="flex items-start justify-between">
-          <Heading title={`Create New Service`} description="Add Details For New Service" />
+          <Heading title={`Create New Solutions`} description="Add Details For New Solutions" />
         </div>
         <Separator />
-        <NewServiceForm categories={data} />
+        <NewSolutionForm categories={data} />
       </div>
     </PageContainer>
   );

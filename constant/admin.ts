@@ -20,10 +20,10 @@ export const navItems: NavItem[] = [
     label: "Users",
   },
   {
-    title: "Service",
-    href: "/admin/services",
+    title: "Solutions",
+    href: "/admin/solutions",
     icon: "product",
-    label: "Service",
+    label: "Solutions",
   },
   {
     title: "Account",

@@ -1,9 +1,10 @@
 import { NextRequest, NextResponse } from "next/server";
+import prisma from "@/lib/prisma";
 
 export async function GET(req: NextRequest, { params }: { params: { id: string } }) {
-  if (!params.id) return NextResponse.json({ error: "Service Id Required" });
+  if (!params.id) return NextResponse.json({ error: "Solutions Id Required" });
 
-  const service = await prisma?.service.findUnique({
+  const service = await prisma.solution.findUnique({
     where: {
       id: params.id,
     },
@@ -35,9 +36,9 @@ export async function GET(req: NextRequest, { params }: { params: { id: string }
 
   const categories = await prisma?.category.findMany();
 
-  if (!service) return NextResponse.json({ error: "Invalid Service Id" });
+  if (!service) return NextResponse.json({ error: "Invalid Solutions Id" });
 
-  const formattedService = {
+  const formattedSolutions = {
     name: service.name,
     description: service.description,
     category: service.category.name,
@@ -46,5 +47,5 @@ export async function GET(req: NextRequest, { params }: { params: { id: string }
     categories,
   };
 
-  return NextResponse.json(formattedService);
+  return NextResponse.json(formattedSolutions);
 }
