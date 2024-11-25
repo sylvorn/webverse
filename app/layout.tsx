@@ -19,12 +19,12 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Prayam Infosoft - Innovative IT Solutions and SaaS Development",
-  description: "Prayam Infosoft delivers cutting-edge IT services, custom software development, and SaaS solutions. Empower your business with our expertise.",
-  keywords: ["Prayam Infosoft", "IT Solutions", "SaaS Development", "Custom Software", "Technology Services"],
+  title: "Sylvorn - Innovative IT Solutions and SaaS Development",
+  description: "Sylvorn delivers cutting-edge IT services, custom software development, and SaaS solutions. Empower your business with our expertise.",
+  keywords: ["Sylvorn", "IT Solutions", "SaaS Development", "Custom Software", "Technology Services"],
   category: "IT Solutions, Technology, Software Development",
-  applicationName: "Prayam Infosoft - IT Solutions & SaaS Development",
-  creator: "Prayam Infosoft",
+  applicationName: "Sylvorn - IT Solutions & SaaS Development",
+  creator: "Sylvorn",
   authors: [
     {
       name: "Ravi Sorathiya",
@@ -36,9 +36,9 @@ export const metadata: Metadata = {
     },
   ],
   openGraph: {
-    title: "Prayam Infosoft - Innovative IT Solutions",
-    description: "Explore top-notch IT services, software development, and SaaS solutions by Prayam Infosoft.",
-    siteName: "Prayam Infosoft",
+    title: "Sylvorn - Innovative IT Solutions",
+    description: "Explore top-notch IT services, software development, and SaaS solutions by Sylvorn.",
+    siteName: "Sylvorn",
     countryName: "india",
     url: "https://www.prayaminfosoft.com",
     type: "website",
@@ -48,7 +48,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased scrollbar-hide`}>
         <RecoilContextProvider>
           <SessionProvider>
             <ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange>

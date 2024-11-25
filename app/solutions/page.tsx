@@ -3,12 +3,12 @@ import Solution from "@/sections/solutions/all-solutions";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "IT Solution by Prayam Infosoft - Explore Our Expertise",
-  description: "Browse the range of IT Solution offered by Prayam Infosoft, from software development to SaaS solutions. Tailored for your business needs.",
-  keywords: "IT Solution, Software Solutions, SaaS Development, Prayam Infosoft",
+  title: "IT Solution by Sylvorn - Explore Our Expertise",
+  description: "Browse the range of IT Solution offered by Sylvorn, from software development to SaaS solutions. Tailored for your business needs.",
+  keywords: "IT Solution, Software Solutions, SaaS Development, Sylvorn",
   category: "IT Solution, Business Solutions, Technology",
   openGraph: {
-    title: "Explore IT Solution by Prayam Infosoft",
+    title: "Explore IT Solution by Sylvorn",
     description: "Our IT Solution include software development, SaaS solutions, and more. Explore now.",
   },
 };

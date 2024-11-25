@@ -15,7 +15,7 @@ export default function HeroSection() {
         <h1 className="mt-5 text-5xl md:text-9xl font-bold text-center bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400 bg-opacity-50">
           Innovating Future <br /> Solutions.
         </h1>
-        <p className="mt-4 font-normal text-lg text-neutral-300 max-w-xl text-center mx-auto">At Prayam Infosoft, we specialize in providing innovative IT solutions that drive efficiency and growth. Whether you're looking for full-stack development or custom software, our dedicated team is here to support your vision.</p>
+        <p className="mt-4 font-normal text-lg text-neutral-300 max-w-xl text-center mx-auto">At Sylvorn, we specialize in providing innovative IT solutions that drive efficiency and growth. Whether you're looking for full-stack development or custom software, our dedicated team is here to support your vision.</p>
       </div>
     </div>
   );

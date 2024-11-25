@@ -5,7 +5,7 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Client Dashboard",
-  description: "Prayam Infosoft | Client Dashboard",
+  description: "Sylvorn | Client Dashboard",
 };
 
 export default function DashboardLayout({ children }: { children: React.ReactNode }) {
