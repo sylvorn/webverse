@@ -4,15 +4,14 @@ import { GlowingStarsBackgroundCard, GlowingStarsDescription, GlowingStarsTitle 
 import { useRouter } from "next/navigation";
 
 export interface solutionCardProps {
-  id: string;
   name: string;
   description: string;
 }
 
-export default function SolutionCard({ id, name, description }: solutionCardProps) {
+export default function SolutionCard({ name, description }: solutionCardProps) {
   const router = useRouter();
   function handleClick() {
-    router.push(`/solutions/${id}`);
+    router.push(`/solutions/${name}`);
   }
 
   return (

@@ -11,7 +11,7 @@ export default function SpotlightPreview() {
       <HeroSection />
       <Technologies />
       <ServiceSection />
-      <SolutionSection />
+      {/* <SolutionSection /> */}
       <QuestionSection />
       <Testimonials />
     </>
