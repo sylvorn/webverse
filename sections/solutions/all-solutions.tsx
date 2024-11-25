@@ -20,7 +20,7 @@ export default function Solutions() {
 
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mx-auto md:px-8 w-full p-6">
         {data.map((s: solutionCardProps) => {
-          return <SolutionCard id={s.id} name={s.name} description={s.description} />;
+          return <SolutionCard name={s.name} description={s.description} />;
         })}
       </div>
     </div>

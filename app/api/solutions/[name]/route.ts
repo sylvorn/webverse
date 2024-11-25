@@ -1,12 +1,12 @@
 import { NextRequest, NextResponse } from "next/server";
 import prisma from "@/lib/prisma";
 
-export async function GET(req: NextRequest, { params }: { params: { id: string } }) {
-  if (!params.id) return NextResponse.json({ error: "Solutions Id Required" });
-
-  const service = await prisma.solution.findUnique({
+export async function GET(req: NextRequest, { params }: { params: { name: string } }) {
+  if (!params.name) return NextResponse.json({ error: "Solutions Name Required" });
+  const serviceName = params.name.replaceAll("-", " ");
+  const service = await prisma.solution.findFirst({
     where: {
-      id: params.id,
+      name: serviceName,
     },
     select: {
       id: true,
@@ -36,7 +36,7 @@ export async function GET(req: NextRequest, { params }: { params: { id: string }
 
   const categories = await prisma?.category.findMany();
 
-  if (!service) return NextResponse.json({ error: "Invalid Solutions Id" });
+  if (!service) return NextResponse.json({ error: "Invalid Solutions Name" });
 
   const formattedSolutions = {
     name: service.name,
