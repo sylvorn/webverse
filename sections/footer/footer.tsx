@@ -9,7 +9,8 @@ export function Footer() {
   const pathname = usePathname();
   const isAdminRoute = pathname.startsWith("/admin");
   const isClientRoute = pathname.startsWith("/client");
-  const shouldHideNavbarFooter = isAdminRoute || isClientRoute;
+  const isComingSoonRoute = pathname.startsWith("/coming-soon");
+  const shouldHideNavbarFooter = isAdminRoute || isClientRoute || isComingSoonRoute;
   if (shouldHideNavbarFooter) {
     return null;
   }
@@ -92,13 +93,13 @@ export function Footer() {
                 </Link>
               </Button> */}
               <Button variant="ghost" size="icon" asChild className="text-gray-400 hover:text-white">
-                <Link href="https://www.linkedin.com/company/prayam-infosoft" target="_blank" rel="noopener noreferrer">
+                <Link href="https://www.linkedin.com/company/sylvorn" target="_blank" rel="noopener noreferrer">
                   <Linkedin className="h-5 w-5" />
                   <span className="sr-only">LinkedIn</span>
                 </Link>
               </Button>
               <Button variant="ghost" size="icon" asChild className="text-gray-400 hover:text-white">
-                <Link href="https://github.com/Prayam-Infosoft" target="_blank" rel="noopener noreferrer">
+                <Link href="https://github.com/sylvorn" target="_blank" rel="noopener noreferrer">
                   <Github className="h-5 w-5" />
                   <span className="sr-only">GitHub</span>
                 </Link>

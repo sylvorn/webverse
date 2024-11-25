@@ -1,5 +1,3 @@
-"use client";
-
 import ServiceCard from "./components/services-card";
 
 export default function ServiceSection() {

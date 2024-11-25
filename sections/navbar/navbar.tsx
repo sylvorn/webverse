@@ -28,7 +28,8 @@ export function FloatingNavbar() {
   const pathname = usePathname();
   const isAdminRoute = pathname.startsWith("/admin");
   const isClientRoute = pathname.startsWith("/client");
-  const shouldHideNavbarFooter = isAdminRoute || isClientRoute;
+  const isComingSoonRoute = pathname.startsWith("/coming-soon");
+  const shouldHideNavbarFooter = isAdminRoute || isClientRoute || isComingSoonRoute;
   if (shouldHideNavbarFooter) {
     return null;
   }
