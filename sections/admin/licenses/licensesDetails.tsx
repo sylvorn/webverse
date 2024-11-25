@@ -23,7 +23,7 @@ export default function LicenseDetails() {
           <DrawerTitle>License Details</DrawerTitle>
         </DrawerHeader>
         <div className="p-1">
-          <LicenseKeyCard softwareName={data.serviceName} licenseKey={data.licenseKey} buyDate={data.buyDate} expiryDate={data.expiryDate} status={data.status} planName={data.planName} />
+          <LicenseKeyCard softwareName={data.solutionName} licenseKey={data.licenseKey} buyDate={data.buyDate} expiryDate={data.expiryDate} status={data.status} planName={data.planName} />
           <h3 className="text-lg font-semibold">Payment History</h3>
           <DataTable columns={paymentColumns} data={data.paymentsHistory} />
         </div>

@@ -1,6 +1,5 @@
 "use client";
 
-import { CardSpotlight } from "@/components/ui/card-spotlight";
 import ServiceCard from "./components/services-card";
 
 export default function ServiceSection() {
@@ -10,12 +9,14 @@ export default function ServiceSection() {
         <h1 className="text-3xl font-bold">Our Services</h1>
         <p className="text-gray-400">Delivering innovative IT solutions for your business needs.</p>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-4 w-full">
-        <ServiceCard color={"#D9ED92"} title={"Full Stack Website Development"} description={"Our Full Stack Website Development service delivers comprehensive web solutions tailored to your business needs."} features={["End-to-End Development", "Responsive Design", "SEO Optimization"]} />
-        <ServiceCard color={"#99D98C"} title={"Backend Development"} description={"Specializing in Backend Development using Node.js and Hono, we create robust and scalable server-side applications."} features={["Scalability", "RESTful APIs", "Real-Time Data Processing"]} />
-        <ServiceCard color={"#52B69A"} title={"Frontend Development"} description={"Our Frontend Development services focus on creating dynamic and engaging user interfaces."} features={["Component-Based Architecture", "Optimized Performance", "Server-Side Rendering"]} />
-        <ServiceCard color={"#168AAD"} title={"Application Development (Coming Soon) (React Native)"} description={"Our Application Development service, launching soon, will focus on cross-platform mobile apps using React Native."} features={["Cross-Platform Compatibility", "Native Performance", "Rapid Development"]} />
-        <ServiceCard color={"#168AAD"} title={"Software Development (Coming Soon)"} description={"Our upcoming Software Development service will offer custom, scalable, and secure software solutions tailored to meet your business needs."} features={["Custom Software Solutions", "Enterprise-Grade Security", "Scalable Architectures", "Cross-Platform Compatibility", "Agile Development Process"]} />
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-7xl mx-auto">
+        <ServiceCard color="#A9D6E5" title="Website" description="Create professional, responsive websites tailored to your business needs." features={["Responsive design", "SEO-friendly structure", "Fast performance"]} />
+        <ServiceCard color="#89C2D9" title="E-Commerce" description="Design intuitive e-commerce platforms that drive conversions." features={["Optimized payment gateways", "User-friendly shopping experience", "Seamless integrations"]} />
+        <ServiceCard color="#61A5C2" title="CMS" description="Streamline content management with tailored CMS solutions." features={["User-friendly interface", "Customizable workflows", "Secure data handling"]} />
+        <ServiceCard color="#468FAF" title="SaaS" description="Build robust SaaS products designed for scalability and global reach." features={["Cloud-native architecture", "Multi-tenancy", "Lifecycle management"]} />
+        <ServiceCard color="#2C7DA0" title="Cloud" description="Empower your business with reliable and scalable cloud solutions." features={["Infrastructure optimization", "Secure data storage", "High availability"]} />
+        <ServiceCard color="#2A6F97" title="UI / UX" description="Deliver visually appealing designs focused on user engagement." features={["Persona-driven design", "Interactive prototypes", "User feedback integration"]} />
+        <ServiceCard color="#014F86" title="Mobile Application" description="Create cutting-edge mobile applications for Android and iOS." features={["Cross-platform compatibility", "High performance", "User-centric design"]} />
       </div>
     </div>
   );

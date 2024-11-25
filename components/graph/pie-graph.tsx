@@ -7,15 +7,15 @@ import { ChartContainer, ChartTooltip, ChartTooltipContent } from "@/components/
 import { dateRange } from "@/lib/currMonth";
 
 interface ChartData {
-  [key: string]: number | string; // Allows for dynamic keys
+  [key: string]: number | string;
 }
 
 interface PieGraphProps {
   title: string;
   description?: string;
   data: ChartData[];
-  dtKey: string; // Dynamic data key for values
-  nmKey: string; // Dynamic name key for labels
+  dtKey: string;
+  nmKey: string;
 }
 
 const generateColor = (index: number) => {
@@ -35,17 +35,17 @@ const generateChartConfig = (data: ChartData[]) => {
 };
 
 export function PieGraph({ title, description = "Showing total visitors for the last 6 months", data, dtKey, nmKey }: PieGraphProps) {
-  const chartConfig = React.useMemo(() => generateChartConfig(data), [data]);
-  const totalVisitors = React.useMemo(() => {
-    return data.reduce((acc, curr) => acc + (curr[dtKey] as number), 0);
-  }, [data, dtKey]);
-
-  const dataWithColors = data.map((d, index) => ({
-    ...d,
-    fill: generateColor(index),
-  }));
-
   if (data.length > 0) {
+    const chartConfig = React.useMemo(() => generateChartConfig(data), [data]);
+    const totalVisitors = React.useMemo(() => {
+      return data.reduce((acc, curr) => acc + (curr[dtKey] as number), 0);
+    }, [data, dtKey]);
+
+    const dataWithColors = data.map((d, index) => ({
+      ...d,
+      fill: generateColor(index),
+    }));
+
     return (
       <Card className="flex flex-col">
         <CardHeader className="items-center pb-0">

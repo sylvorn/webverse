@@ -41,7 +41,7 @@ var bcrypt_1 = require("bcrypt");
 var prisma = new client_1.PrismaClient();
 function main() {
     return __awaiter(this, void 0, void 0, function () {
-        var softwareCategory, healthcareCategory, customSoftwareService, healthcareAppService, enterprisePlan, trialPlan, hasedPassword, user3, user4, user5, subscription4, subscription5, subscription6;
+        var softwareCategory, healthcareCategory, customSoftwaresolution, healthcareAppsolution, enterprisePlan, trialPlan, hasedPassword, user3, user4, user5, subscription4, subscription5, subscription6;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0: return [4 /*yield*/, prisma.category.create({
@@ -58,7 +58,7 @@ function main() {
                         })];
                 case 2:
                     healthcareCategory = _a.sent();
-                    return [4 /*yield*/, prisma.service.create({
+                    return [4 /*yield*/, prisma.solution.create({
                             data: {
                                 name: "Custom Software Solutions",
                                 description: "Tailored software development for businesses",
@@ -66,8 +66,8 @@ function main() {
                             },
                         })];
                 case 3:
-                    customSoftwareService = _a.sent();
-                    return [4 /*yield*/, prisma.service.create({
+                    customSoftwaresolution = _a.sent();
+                    return [4 /*yield*/, prisma.solution.create({
                             data: {
                                 name: "Healthcare Management App",
                                 description: "App to manage patient records and scheduling",
@@ -75,14 +75,14 @@ function main() {
                             },
                         })];
                 case 4:
-                    healthcareAppService = _a.sent();
+                    healthcareAppsolution = _a.sent();
                     return [4 /*yield*/, prisma.plan.create({
                             data: {
                                 name: "Enterprise Plan",
                                 description: "Enterprise-level access with extended features",
                                 price: 10000,
                                 duration: 24, // in months
-                                serviceId: customSoftwareService.id,
+                                solutionId: customSoftwaresolution.id,
                             },
                         })];
                 case 5:
@@ -93,7 +93,7 @@ function main() {
                                 description: "Free trial plan for new customers",
                                 price: 0,
                                 duration: 1, // in months
-                                serviceId: healthcareAppService.id,
+                                solutionId: healthcareAppsolution.id,
                             },
                         })];
                 case 6:
@@ -185,7 +185,7 @@ function main() {
                                     expiryDate: new Date(new Date().setDate(new Date().getDate() + 30)), // Expires in 30 days
                                     status: "Active",
                                     userId: user3.id,
-                                    serviceId: customSoftwareService.id,
+                                    solutionId: customSoftwaresolution.id,
                                     subscriptionId: subscription4.id,
                                 },
                                 {
@@ -193,7 +193,7 @@ function main() {
                                     expiryDate: new Date(new Date().setDate(new Date().getDate() - 10)), // Expired 10 days ago
                                     status: "Expired",
                                     userId: user4.id,
-                                    serviceId: healthcareAppService.id,
+                                    solutionId: healthcareAppsolution.id,
                                     subscriptionId: subscription5.id,
                                 },
                             ],
