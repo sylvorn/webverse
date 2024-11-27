@@ -39,8 +39,8 @@ export default function ComingSoonPage() {
   }, []);
 
   return (
-    <div className="min-h-screen w-full dark:bg-black bg-white dark:bg-grid-white/[0.2] bg-grid-black/[0.2] relative flex items-center justify-center overflow-hidden py-10">
-      <div className="absolute pointer-events-none inset-0 flex items-center justify-center dark:bg-black bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]"></div>
+    <div className="min-h-screen w-full bg-black bg-grid-white/[0.2] relative flex items-center justify-center overflow-hidden py-10">
+      <div className="absolute pointer-events-none inset-0 flex items-center justify-center bg-black [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]"></div>
       <BackgroundBeams />
       <div className="container mx-auto px-4 relative z-10 bg-black/50 rounded-3xl p-8">
         <div className="flex flex-col lg:flex-row items-center justify-between gap-8">
@@ -68,7 +68,7 @@ export default function ComingSoonPage() {
           </div>
           <div className="w-full lg:w-1/2 flex justify-center lg:justify-end">
             <div className="relative w-full max-w-md rounded-3xl overflow-hidden">
-              <Image src="/images/Golden-Pheasant.png" alt="Sylvorn's Golden Pheasant" width={800} height={600} layout="responsive" className="object-cover" />
+              <Image src="/images/Golden-Pheasant.png" alt="Sylvorn's Golden Pheasant" width={800} height={600} layout="responsive" className="object-cover animate-moving-glow" />
             </div>
           </div>
         </div>

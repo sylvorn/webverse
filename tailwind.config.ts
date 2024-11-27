@@ -95,6 +95,10 @@ const config = {
             opacity: "0",
           },
         },
+        "pulse-glow": {
+          "0%, 100%": { filter: "drop-shadow(0 0 2px rgba(255, 215, 0, 0.8))" },
+          "50%": { filter: "drop-shadow(0 0 5px rgba(255, 215, 0, 1))" },
+        },
       },
       animation: {
         scroll: "scroll var(--animation-duration, 40s) var(--animation-direction, forwards) linear infinite",
@@ -102,6 +106,7 @@ const config = {
         "accordion-up": "accordion-up 0.2s ease-out",
         spotlight: "spotlight 2s ease .75s 1 forwards",
         "meteor-effect": "meteor 5s linear infinite",
+        "moving-glow": "pulse-glow 3s infinite ease-in-out",
       },
     },
   },
