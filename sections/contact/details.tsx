@@ -15,7 +15,7 @@ export default function Details() {
         </div>
         <div className="flex items-center space-x-3">
           <Mail className="h-5 w-5 text-muted-foreground" />
-          <p className="text-sm text-neutral-300">jenildev91@gmail.com</p>
+          <p className="text-sm text-neutral-300">hello@sylvorn.com</p>
         </div>
       </div>
       <div className="pt-4 border-t border-border">

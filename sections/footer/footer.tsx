@@ -18,7 +18,7 @@ export function Footer() {
   return (
     <footer className="bg-black/[0.95] antialiased bg-grid-white/[0.02] border-t border-gray-800 text-center sm:text-left">
       <div className="container px-4 py-8 mx-auto">
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-4 justify-items-center">
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-5 justify-items-center">
           <div className="flex flex-col items-start">
             <Link href="/" className="flex items-center space-x-2">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-6 w-6">
@@ -66,6 +66,27 @@ export function Footer() {
               <li>
                 <Link href="/cookies" className="text-sm text-gray-400 hover:text-white transition-colors">
                   Cookie Policy
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 className="font-semibold mb-2 text-white">Support</h3>
+            <ul className="space-y-2">
+              <li>
+                <Link href="/blog" className="text-sm text-gray-400 hover:text-white transition-colors">
+                  Blog
+                </Link>
+              </li>
+              <li>
+                <Link href="/faq" className="text-sm text-gray-400 hover:text-white transition-colors">
+                  FAQs
+                </Link>
+              </li>
+              <li>
+                <Link href="/contact" className="text-sm text-gray-400 hover:text-white transition-colors">
+                  Contact
                 </Link>
               </li>
             </ul>
