@@ -17,6 +17,7 @@ export default function HeroSection() {
         </h1>
         <p className="mt-4 font-normal text-lg text-neutral-300 max-w-xl text-center mx-auto">Welcome to Sylvorn—your partner in crafting intelligent software and IT solutions. From concept to deployment, we empower businesses with the technology they need to thrive in a rapidly evolving world.</p>
       </div>
+      <div className="absolute inset-0 pointer-events-none bg-gradient-to-b from-transparent to-black/80 z-10" />
     </div>
   );
 }

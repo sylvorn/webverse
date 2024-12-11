@@ -14,7 +14,7 @@ export default function ServiceSection() {
         <ServiceCard color="#468FAF" title="SaaS" description="Build robust SaaS products designed for scalability and global reach." features={["Cloud-native architecture", "Multi-tenancy", "Lifecycle management"]} />
         <ServiceCard color="#2C7DA0" title="Cloud" description="Empower your business with reliable and scalable cloud solutions." features={["Infrastructure optimization", "Secure data storage", "High availability"]} />
         <ServiceCard color="#2A6F97" title="UI / UX" description="Deliver visually appealing designs focused on user engagement." features={["Persona-driven design", "Interactive prototypes", "User feedback integration"]} />
-        <ServiceCard color="#014F86" title="Mobile Application" description="Create cutting-edge mobile applications for Android and iOS." features={["Cross-platform compatibility", "High performance", "User-centric design"]} />
+        {/* <ServiceCard color="#014F86" title="Mobile Application" description="Create cutting-edge mobile applications for Android and iOS." features={["Cross-platform compatibility", "High performance", "User-centric design"]} /> */}
       </div>
     </div>
   );
