@@ -15,7 +15,6 @@ export default function LicenseDetails() {
   const { data, isLoading } = useSWR(`/api/client/licenses/${selectedLicenseId}`, fetcher);
 
   if (isLoading) return <LicenseDrawerSkeleton />;
-  console.log(data);
 
   return (
     <DrawerContent>
