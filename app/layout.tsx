@@ -1,21 +1,14 @@
+import { RecoilContextProvider } from "@/sections/layout/RecoilContextProvider";
 import { ThemeProvider } from "@/components/theme-provider";
 import { FloatingNavbar } from "@/sections/navbar/navbar";
 import { Footer } from "@/sections/footer/footer";
 import { SessionProvider } from "next-auth/react";
-import localFont from "next/font/local";
+import { Inter } from "next/font/google";
 import type { Metadata } from "next";
 import "./globals.css";
-import { RecoilContextProvider } from "@/sections/layout/RecoilContextProvider";
 
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-});
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
+const inter = Inter({
+  subsets: ["latin"],
 });
 
 export const metadata: Metadata = {
@@ -48,7 +41,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased scrollbar-hide`}>
+      <body className={`${inter.className} antialiased scrollbar-hide`}>
         <RecoilContextProvider>
           <SessionProvider>
             <ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange>
