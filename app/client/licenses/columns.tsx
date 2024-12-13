@@ -27,7 +27,7 @@ export const columns: ColumnDef<License>[] = [
     },
   },
   {
-    accessorKey: "Solution Name",
+    accessorKey: "solutionName",
     header: ({ column }) => {
       return (
         <Button variant="ghost" onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}>
