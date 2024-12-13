@@ -16,7 +16,7 @@ export function Footer() {
   }
 
   return (
-    <footer className="bg-black/[0.95] antialiased bg-grid-white/[0.02] border-t border-gray-800 text-center sm:text-left">
+    <footer className="bg-black/[0.95] antialiased border-t border-gray-800 text-center sm:text-left">
       <div className="container px-4 py-8 mx-auto">
         <div className="grid grid-cols-1 gap-8 md:grid-cols-5 justify-items-center">
           <div className="flex flex-col items-start">
