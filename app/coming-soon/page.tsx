@@ -46,7 +46,7 @@ export default function ComingSoonPage() {
         <div className="flex flex-col lg:flex-row items-center justify-between gap-8">
           <div className="w-full lg:w-1/2">
             <h1 className="text-4xl md:text-6xl font-bold text-center lg:text-left bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400 bg-opacity-50 mb-4">Sylvorn</h1>
-            <div className="max-w-lg mx-auto lg:mx-0">
+            <div className="max-w-lg text-center lg:text-left mx-auto lg:mx-0">
               <TextGenerateEffect words="Innovating the future of IT. Our full site is coming soon." />
             </div>
             <div className="mt-10">
