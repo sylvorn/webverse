@@ -83,7 +83,7 @@ export async function getMonthlyCategorySums() {
         include: {
           plan: {
             include: {
-              service: {
+              solution: {
                 include: {
                   category: true,
                 },
@@ -103,7 +103,7 @@ export async function getMonthlyCategorySums() {
 
   payments.forEach((payment) => {
     const month = new Date(payment.paymentDate).toLocaleString("default", { month: "long" });
-    const categoryName = payment.subscription.plan.service.category?.name || "Unknown";
+    const categoryName = payment.subscription.plan.solution.category?.name || "Unknown";
 
     // Add the category to the set of all categories
     allCategories.add(categoryName);
@@ -149,7 +149,7 @@ export async function getServiceSales() {
         include: {
           plan: {
             include: {
-              service: true,
+              solution: true,
             },
           },
         },
@@ -158,7 +158,7 @@ export async function getServiceSales() {
   });
 
   const salesByService = payments.reduce((acc, payment) => {
-    const serviceName = payment.subscription.plan.service.name;
+    const serviceName = payment.subscription.plan.solution.name;
     if (!acc[serviceName]) {
       acc[serviceName] = 0;
     }

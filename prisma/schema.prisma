@@ -33,7 +33,7 @@ model User {
   payments Payment[]
   subscriptions Subscription[]
 }
-model Service {
+model Solution {
   id          String   @unique @default(uuid())
   name        String   
   description String
@@ -47,14 +47,14 @@ model Service {
 model Category {
   id          String   @unique @default(uuid())
   name        String   @unique
-  service     Service[]
+  solution     Solution[]
 }
 model Features {
   id          String @unique @default(uuid())
   title       String
   content     String
-  serviceId   String
-  service     Service @relation(fields: [serviceId], references: [id])
+  solutionId   String
+  solution     Solution @relation(fields: [solutionId], references: [id])
 }
 model Plan {
   id          String   @unique @default(uuid()) 
@@ -62,8 +62,8 @@ model Plan {
   description String   
   price       Int   
   duration    Int      //In Months   
-  serviceId   String   
-  service     Service  @relation(fields: [serviceId], references: [id])
+  solutionId   String   
+  solution     Solution  @relation(fields: [solutionId], references: [id])
   subscriptions Subscription[] 
 }
 model Subscription {
@@ -86,8 +86,8 @@ model License {
   createdAt   DateTime @default(now())  
   userId       String                   
   user         User      @relation(fields: [userId], references: [id])
-  serviceId   String   
-  service     Service  @relation(fields: [serviceId], references: [id])
+  solutionId   String   
+  solution     Solution  @relation(fields: [solutionId], references: [id])
   subscriptionId String                 
   subscription Subscription @relation(fields: [subscriptionId], references: [id])
 }

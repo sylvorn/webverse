@@ -7,7 +7,7 @@ import LicenseDropdownMenu from "@/sections/admin/licenses/DropDownMenu";
 
 export type License = {
   id: string;
-  serviceName: string;
+  solutionName: string;
   licenseKey: string;
   status: "Pending" | "Active" | "Expired";
   createdAt: string;
@@ -24,11 +24,11 @@ export const columns: ColumnDef<License>[] = [
     },
   },
   {
-    accessorKey: "serviceName",
+    accessorKey: "solutionName",
     header: ({ column }) => {
       return (
         <Button variant="ghost" onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}>
-          Services
+          Solution
           <ArrowUpDown className="ml-2 h-4 w-4" />
         </Button>
       );

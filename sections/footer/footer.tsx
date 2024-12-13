@@ -9,7 +9,8 @@ export function Footer() {
   const pathname = usePathname();
   const isAdminRoute = pathname.startsWith("/admin");
   const isClientRoute = pathname.startsWith("/client");
-  const shouldHideNavbarFooter = isAdminRoute || isClientRoute;
+  const isComingSoonRoute = pathname.startsWith("/coming-soon");
+  const shouldHideNavbarFooter = isAdminRoute || isClientRoute || isComingSoonRoute;
   if (shouldHideNavbarFooter) {
     return null;
   }
@@ -17,13 +18,13 @@ export function Footer() {
   return (
     <footer className="bg-black/[0.95] antialiased bg-grid-white/[0.02] border-t border-gray-800 text-center sm:text-left">
       <div className="container px-4 py-8 mx-auto">
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-4 justify-items-center">
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-5 justify-items-center">
           <div className="flex flex-col items-start">
             <Link href="/" className="flex items-center space-x-2">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-6 w-6">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-6 w-6">
                 <circle cx="12" cy="12" r="10" />
               </svg>
-              <span className="font-bold text-xl text-white">Prayam Infosoft</span>
+              <span className="font-bold text-xl text-white">Sylvorn</span>
             </Link>
             <p className="mt-2 text-sm text-gray-400">Empowering your digital journey.</p>
           </div>
@@ -37,8 +38,8 @@ export function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/services" className="text-sm text-gray-400 hover:text-white transition-colors">
-                  Services
+                <Link href="/solutions" className="text-sm text-gray-400 hover:text-white transition-colors">
+                  Solutions
                 </Link>
               </li>
               <li>
@@ -71,6 +72,27 @@ export function Footer() {
           </div>
 
           <div>
+            <h3 className="font-semibold mb-2 text-white">Support</h3>
+            <ul className="space-y-2">
+              <li>
+                <Link href="/blog" className="text-sm text-gray-400 hover:text-white transition-colors">
+                  Blog
+                </Link>
+              </li>
+              <li>
+                <Link href="/faq" className="text-sm text-gray-400 hover:text-white transition-colors">
+                  FAQs
+                </Link>
+              </li>
+              <li>
+                <Link href="/contact" className="text-sm text-gray-400 hover:text-white transition-colors">
+                  Contact
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          <div>
             <h3 className="font-semibold mb-2 text-white">Connect With Us</h3>
             <div className="flex space-x-4 justify-center items-center">
               {/* <Button variant="ghost" size="icon" asChild className="text-gray-400 hover:text-white">
@@ -92,13 +114,13 @@ export function Footer() {
                 </Link>
               </Button> */}
               <Button variant="ghost" size="icon" asChild className="text-gray-400 hover:text-white">
-                <Link href="https://www.linkedin.com/company/prayam-infosoft" target="_blank" rel="noopener noreferrer">
+                <Link href="https://www.linkedin.com/company/sylvorn" target="_blank" rel="noopener noreferrer">
                   <Linkedin className="h-5 w-5" />
                   <span className="sr-only">LinkedIn</span>
                 </Link>
               </Button>
               <Button variant="ghost" size="icon" asChild className="text-gray-400 hover:text-white">
-                <Link href="https://github.com/Prayam-Infosoft" target="_blank" rel="noopener noreferrer">
+                <Link href="https://github.com/sylvorn" target="_blank" rel="noopener noreferrer">
                   <Github className="h-5 w-5" />
                   <span className="sr-only">GitHub</span>
                 </Link>
@@ -108,12 +130,12 @@ export function Footer() {
         </div>
 
         <div className="mt-8 border-t border-gray-800 pt-4">
-          <p className="text-sm text-center text-gray-400">© {new Date().getFullYear()} Prayam Infosoft. All rights reserved.</p>
+          <p className="text-sm text-center text-gray-400">© {new Date().getFullYear()} Sylvorn. All rights reserved.</p>
         </div>
       </div>
 
       <div className="h-[21rem] flex items-center justify-center">
-        <TextHoverEffect text="PRAYAM INFOSOFT" />
+        <TextHoverEffect text="Sylvorn" />
       </div>
     </footer>
   );

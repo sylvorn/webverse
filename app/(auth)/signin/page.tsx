@@ -3,8 +3,14 @@ import SignInViewPage from "@/sections/auth/view/warpper";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Authentication | Log In",
-  description: "Login To Your Account",
+  title: "Login to Sylvorn - Access Your Dashboard",
+  description: "Securely login to Sylvorn and manage your services effortlessly. We value your privacy.",
+  keywords: ["Login Sylvorn", "Secure Access", "User Dashboard"],
+  category: "Login, User Authentication",
+  openGraph: {
+    title: "Login to Sylvorn",
+    description: "Access your dashboard and manage IT services securely.",
+  },
 };
 
 export default function Page() {

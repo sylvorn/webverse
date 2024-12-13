@@ -19,7 +19,7 @@ export async function GET() {
         include: {
           plan: {
             include: {
-              service: {
+              solution: {
                 select: {
                   name: true,
                 },
@@ -32,7 +32,7 @@ export async function GET() {
   });
 
   const formattedPayments = payments.map((payment) => ({
-    serviceName: payment.subscription.plan.service.name,
+    solutionName: payment.subscription.plan.solution.name,
     amount: payment.amount,
     status: payment.status,
     paymentDate: payment.paymentDate,

@@ -15,16 +15,16 @@ export default function Details() {
         </div>
         <div className="flex items-center space-x-3">
           <Mail className="h-5 w-5 text-muted-foreground" />
-          <p className="text-sm text-neutral-300">jenildev91@gmail.com</p>
+          <p className="text-sm text-neutral-300">hello@sylvorn.com</p>
         </div>
       </div>
       <div className="pt-4 border-t border-border">
         <h3 className="text-lg font-semibold mb-3 bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400 bg-opacity-50">Follow Us</h3>
         <div className="flex space-x-4">
-          <a href="https://www.linkedin.com/company/prayam-infosoft" className="text-muted-foreground hover:text-primary">
+          <a href="https://www.linkedin.com/company/sylvorn" className="text-muted-foreground hover:text-primary">
             <Linkedin className="h-6 w-6" />
           </a>
-          <a href="https://github.com/Prayam-Infosoft" className="text-muted-foreground hover:text-primary">
+          <a href="https://github.com/sylvorn" className="text-muted-foreground hover:text-primary">
             <Github className="h-6 w-6" />
           </a>
         </div>

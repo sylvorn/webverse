@@ -40,7 +40,7 @@ export const verifyUserSchema = z.object({
   email: z.string().email(),
 });
 
-export const newServiceSchema = z.object({
+export const newSolutionSchema = z.object({
   title: z.string().min(1, "Title is required"),
   description: z.string().min(1, "Description is required"),
   categoryId: z.string().min(1, "Category is required"),

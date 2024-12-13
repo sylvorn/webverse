@@ -26,7 +26,7 @@ export async function GET() {
           },
         },
       },
-      service: {
+      solution: {
         select: {
           name: true,
         },
@@ -36,7 +36,7 @@ export async function GET() {
 
   const formattedLicenses = licenses.map((license) => ({
     id: license.id,
-    serviceName: license.service.name,
+    solutionName: license.solution.name,
     status: license.status,
     licenseKey: license.licenseKey,
     expiryDate: license.expiryDate,

@@ -57,7 +57,7 @@ export const TextHoverEffect = ({ text, duration }: { text: string; duration?: n
           <rect x="0" y="0" width="100%" height="100%" fill="url(#revealMask)" />
         </mask>
       </defs>
-      <text x="50%" y="50%" textAnchor="middle" dominantBaseline="middle" strokeWidth="0.3" className="font-[helvetica] font-bold stroke-neutral-800 fill-transparent text-4xl  " style={{ opacity: hovered ? 0.7 : 0 }}>
+      <text x="50%" y="50%" textAnchor="middle" dominantBaseline="middle" strokeWidth="0.3" className="font-[helvetica] font-bold stroke-neutral-800 fill-transparent text-6xl  " style={{ opacity: hovered ? 0.7 : 0 }}>
         {text}
       </text>
       <motion.text
@@ -66,7 +66,7 @@ export const TextHoverEffect = ({ text, duration }: { text: string; duration?: n
         textAnchor="middle"
         dominantBaseline="middle"
         strokeWidth="0.3"
-        className="font-[helvetica] font-bold fill-transparent text-4xl stroke-neutral-800"
+        className="font-[helvetica] font-bold fill-transparent text-6xl stroke-neutral-800"
         initial={{ strokeDashoffset: 1000, strokeDasharray: 1000 }}
         animate={{
           strokeDashoffset: 0,
@@ -79,7 +79,7 @@ export const TextHoverEffect = ({ text, duration }: { text: string; duration?: n
       >
         {text}
       </motion.text>
-      <text x="50%" y="50%" textAnchor="middle" dominantBaseline="middle" stroke="url(#textGradient)" strokeWidth="0.3" mask="url(#textMask)" className="font-[helvetica] font-bold fill-transparent text-4xl  ">
+      <text x="50%" y="50%" textAnchor="middle" dominantBaseline="middle" stroke="url(#textGradient)" strokeWidth="0.3" mask="url(#textMask)" className="font-[helvetica] font-bold fill-transparent text-6xl  ">
         {text}
       </text>
     </svg>
