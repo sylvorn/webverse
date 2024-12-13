@@ -87,12 +87,26 @@ const config = {
             transform: "translate(-50%,-40%) scale(1)",
           },
         },
+        meteor: {
+          "0%": { transform: "rotate(215deg) translateX(0)", opacity: "1" },
+          "70%": { opacity: "1" },
+          "100%": {
+            transform: "rotate(215deg) translateX(-500px)",
+            opacity: "0",
+          },
+        },
+        "pulse-glow": {
+          "0%, 100%": { filter: "drop-shadow(0 0 2px rgba(255, 215, 0, 0.8))" },
+          "50%": { filter: "drop-shadow(0 0 5px rgba(255, 215, 0, 1))" },
+        },
       },
       animation: {
         scroll: "scroll var(--animation-duration, 40s) var(--animation-direction, forwards) linear infinite",
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
         spotlight: "spotlight 2s ease .75s 1 forwards",
+        "meteor-effect": "meteor 5s linear infinite",
+        "moving-glow": "pulse-glow 3s infinite ease-in-out",
       },
     },
   },
@@ -109,6 +123,7 @@ const config = {
         { values: flattenColorPalette(theme("backgroundColor")), type: "color" }
       );
     },
+    require("tailwind-scrollbar-hide"),
   ],
 } satisfies Config;
 

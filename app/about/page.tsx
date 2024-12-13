@@ -4,12 +4,12 @@ import PageHead from "@/sections/page-header/pageHeader";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "About Prayam Infosoft - Your Trusted IT Partner",
-  description: "Learn about Prayam Infosoft, a leader in IT solutions, software development, and SaaS. Partner with us for success.",
-  keywords: "Prayam Infosoft, About Us, IT Company, Technology Solutions",
+  title: "About Sylvorn - Your Trusted IT Partner",
+  description: "Learn about Sylvorn, a leader in IT solutions, software development, and SaaS. Partner with us for success.",
+  keywords: "Sylvorn, About Us, IT Company, Technology Solutions",
   category: "About Us, IT Solutions, Software Development",
   openGraph: {
-    title: "About Prayam Infosoft",
+    title: "About Sylvorn",
     description: "Discover our mission and vision as leaders in IT solutions and SaaS development.",
   },
 };

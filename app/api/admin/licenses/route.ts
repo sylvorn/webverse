@@ -13,7 +13,7 @@ export async function GET() {
           include: {
             plan: {
               include: {
-                service: {
+                solution: {
                   select: {
                     name: true,
                   },
@@ -36,7 +36,7 @@ export async function GET() {
 
     const formattedLicenses = allLicenses.map((license) => ({
       id: license.id,
-      serviceName: license.subscription.plan.name,
+      solutionName: license.subscription.plan.solution.name,
       licenseKey: license.licenseKey,
       status: license.status,
       createdAt: format(new Date(license.createdAt), "yyyy-MM-dd"),

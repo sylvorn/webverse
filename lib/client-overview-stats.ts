@@ -78,7 +78,7 @@ export const recentPayment = async () => {
         select: {
           plan: {
             select: {
-              service: {
+              solution: {
                 select: {
                   name: true,
                 },
@@ -93,7 +93,7 @@ export const recentPayment = async () => {
   const formattedRecentPayments = recentPayment.map((rp) => ({
     amount: rp.amount,
     paymentDate: rp.paymentDate,
-    serviceName: rp.subscription.plan.service.name,
+    serviceName: rp.subscription.plan.solution.name,
   }));
 
   return formattedRecentPayments;

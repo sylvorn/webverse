@@ -10,8 +10,8 @@ export function FloatingNavbar() {
       icon: <IconHome className="h-4 w-4 text-neutral-500 dark:text-white" />,
     },
     {
-      name: "Services",
-      link: "/services",
+      name: "Solutions",
+      link: "/solutions",
       icon: <IconBriefcase className="h-4 w-4 text-neutral-500 dark:text-white" />,
     },
     {
@@ -28,7 +28,8 @@ export function FloatingNavbar() {
   const pathname = usePathname();
   const isAdminRoute = pathname.startsWith("/admin");
   const isClientRoute = pathname.startsWith("/client");
-  const shouldHideNavbarFooter = isAdminRoute || isClientRoute;
+  const isComingSoonRoute = pathname.startsWith("/coming-soon");
+  const shouldHideNavbarFooter = isAdminRoute || isClientRoute || isComingSoonRoute;
   if (shouldHideNavbarFooter) {
     return null;
   }

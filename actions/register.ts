@@ -54,7 +54,7 @@ export const register = async (values: z.infer<typeof RegisterSchema>) => {
     If you did not request this OTP, please ignore this message.
 
     Best regards,
-    Jenil Desai | CEO | Prayam Infosoft
+    Jenil Desai | CEO | Sylvorn
     `,
   });
 
