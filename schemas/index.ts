@@ -106,3 +106,19 @@ export const newCategorySchema = z.object({
     message: "Category name must be at least 2 characters.",
   }),
 });
+
+export const newBlogSchema = z.object({
+  title: z.string().min(10, {
+    message: "Title must be at least 10 characters.",
+  }),
+  brief: z
+    .string()
+    .min(10, {
+      message: "Brief must be at least 10 characters.",
+    })
+    .max(300, {
+      message: "Brief name must be at max 300 characters.",
+    }),
+  content: z.string().optional(),
+  publised: z.boolean().default(false),
+});
