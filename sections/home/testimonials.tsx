@@ -8,7 +8,7 @@ export default function Testimonials() {
         <h1 className="text-3xl font-bold">Loved by thousands of people</h1>
         <p className="text-gray-400">Here's what some of our users have to say about Sylvorn</p>
       </div>
-      <div className="h-[40rem] flex flex-col antialiased bg-black bg-grid-white/[0.05] items-center justify-center relative overflow-hidden">
+      <div className="h-[40rem] flex flex-col antialiased bg-black items-center justify-center relative overflow-hidden">
         <InfiniteMovingCards items={testimonials} direction="right" speed="normal" />
         <InfiniteMovingCards items={testimonials} direction="left" speed="normal" />
       </div>
