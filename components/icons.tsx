@@ -1,8 +1,9 @@
-import { DollarSign, AlertTriangle, ArrowRight, Check, ChevronLeft, ChevronRight, CircuitBoardIcon, Command, CreditCard, File, FileText, HelpCircle, Image, Laptop, LayoutDashboardIcon, Loader2, LogIn, LucideIcon, LucideProps, LucideShoppingBag, Moon, MoreVertical, Pizza, Plus, Settings, SunMedium, Trash, Twitter, User, UserCircle2Icon, UserPen, UserX2Icon, X, Building2 } from "lucide-react";
+import { DollarSign, AlertTriangle, ArrowRight, Check, ChevronLeft, ChevronRight, CircuitBoardIcon, Command, CreditCard, File, FileText, HelpCircle, Image, Laptop, LayoutDashboardIcon, Loader2, LogIn, LucideIcon, LucideProps, LucideShoppingBag, Moon, MoreVertical, Pizza, Plus, Settings, SunMedium, Trash, Twitter, User, UserCircle2Icon, UserPen, UserX2Icon, X, Building2, ScrollText } from "lucide-react";
 
 export type Icon = LucideIcon;
 
 export const Icons = {
+  scrollText: ScrollText,
   money: DollarSign,
   company: Building2,
   dashboard: LayoutDashboardIcon,

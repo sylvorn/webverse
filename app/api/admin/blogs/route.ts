@@ -35,7 +35,7 @@ export async function GET() {
       author: `${blog.user.fname} ${blog.user.lname}`,
       clap: blog.clap,
       comments: blog._count.comments,
-      publised: blog.published,
+      published: blog.published,
       createdAt: blog.createdAt,
     }));
 

@@ -4,7 +4,6 @@ import Link from "@tiptap/extension-link";
 import CodeBlockLowlight from "@tiptap/extension-code-block-lowlight";
 import Subscript from "@tiptap/extension-subscript";
 import Superscript from "@tiptap/extension-superscript";
-import "tippy.js/themes/translucent.css";
 import Table from "@tiptap/extension-table";
 import TableCell from "@tiptap/extension-table-cell";
 import TableHeader from "@tiptap/extension-table-header";
@@ -18,10 +17,10 @@ import PageContainer from "@/components/layout/page-container";
 import { Breadcrumbs } from "@/components/ui/breadcrumbs";
 import { Heading } from "@/components/ui/heading";
 import { Separator } from "@/components/ui/seprator";
-import { useEditor, EditorContent, BubbleMenu } from "@tiptap/react";
+import { useEditor } from "@tiptap/react";
 import StarterKit from "@tiptap/starter-kit";
 import { useState } from "react";
-import { common, createLowlight } from "lowlight";
+import { all, createLowlight } from "lowlight";
 
 import Toolbar from "@/sections/admin/blogs/new-blog-editor-toolbar";
 import { NewBlogForm } from "@/sections/admin/blogs/new-blog-form";
@@ -34,7 +33,7 @@ const breadcrumbItems = [
 
 export default function NewBlogPage() {
   const [content, setContent] = useState("Start Writing Something Great");
-  const lowlight = createLowlight(common);
+  const lowlight = createLowlight(all);
   const editor = useEditor({
     extensions: [
       StarterKit,
@@ -62,7 +61,7 @@ export default function NewBlogPage() {
     },
     editorProps: {
       attributes: {
-        class: "prose dark:prose-invert prose-sm sm:prose-base lg:prose-lg xl:prose-2xl focus:outline-none",
+        className: "prose dark:prose-invert prose-sm sm:prose-base lg:prose-lg xl:prose-2xl focus:outline-none",
       },
     },
   });

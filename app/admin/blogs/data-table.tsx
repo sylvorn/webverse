@@ -51,8 +51,8 @@ export function DataTable<TData, TValue>({ columns, data }: DataTableProps<TData
           </SelectTrigger>
           <SelectContent>
             <SelectItem value="all">All Status</SelectItem>
-            <SelectItem value="true">Publised</SelectItem>
-            <SelectItem value="false">Draft</SelectItem>
+            <SelectItem value="Published">Publised</SelectItem>
+            <SelectItem value="Draft">Draft</SelectItem>
           </SelectContent>
         </Select>
         <DropdownMenu>

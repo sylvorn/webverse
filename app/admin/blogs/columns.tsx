@@ -66,7 +66,7 @@ export const columns: ColumnDef<Blog>[] = [
     accessorKey: "published",
     header: "Published",
     cell: ({ row }) => {
-      return <Badge className={row.getValue("published") ? "bg-green-500" : "bg-gray-500"}>{row.getValue("published") ? "Published" : "Draft"}</Badge>;
+      return <Badge className={row.getValue("published") === true ? "bg-green-500" : "bg-gray-500"}>{row.getValue("published") === true ? "Published" : "Draft"}</Badge>;
     },
   },
   {
