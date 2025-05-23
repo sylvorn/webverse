@@ -4,7 +4,7 @@ import { Breadcrumbs } from "@/components/ui/breadcrumbs";
 import { Separator } from "@/components/ui/seprator";
 import { Heading } from "@/components/ui/heading";
 import LicensePageSkeleton from "./skeleton";
-import { DataTable } from "./data-table";
+import { DataTable } from "@/components/global/DataTable";
 import { columns } from "./columns";
 import fetcher from "@/fetcher";
 import useSWR from "swr";
@@ -35,7 +35,25 @@ export default function AdminBlogPage() {
           </Link>
         </div>
         <Separator />
-        <DataTable data={data} columns={columns} />
+        <DataTable
+          data={data}
+          columns={columns}
+          search={{ column: "title", placeholder: "Search Title" }}
+          filter={{
+            column: "published",
+            placeholder: "Select a Published",
+            options: [
+              { value: "all", label: "All Status" },
+              { value: "Published", label: "Published" },
+              { value: "Draft", label: "Draft" },
+            ],
+          }}
+          noData={{
+            icon: <div className="rounded-full bg-primary/10 p-3"></div>,
+            title: "No results found",
+            description: "There are no users matching your search criteria.",
+          }}
+        />
       </div>
     </PageContainer>
   );

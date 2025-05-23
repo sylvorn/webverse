@@ -3,7 +3,7 @@ import PageContainer from "@/components/layout/page-container";
 import { Breadcrumbs } from "@/components/ui/breadcrumbs";
 import { Separator } from "@/components/ui/seprator";
 import { Heading } from "@/components/ui/heading";
-import { DataTable } from "./data-table";
+import { DataTable } from "@/components/global/DataTable";
 import { columns } from "./columns";
 import fetcher from "@/fetcher";
 import useSWR from "swr";
