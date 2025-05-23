@@ -75,8 +75,8 @@ export function Footer() {
             <h3 className="font-semibold mb-2 text-white">Support</h3>
             <ul className="space-y-2">
               <li>
-                <Link href="/blog" className="text-sm text-gray-400 hover:text-white transition-colors">
-                  Blog
+                <Link href="/blogs" className="text-sm text-gray-400 hover:text-white transition-colors">
+                  Blogs
                 </Link>
               </li>
               <li>

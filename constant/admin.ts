@@ -26,6 +26,12 @@ export const navItems: NavItem[] = [
     label: "Solutions",
   },
   {
+    title: "Blogs",
+    href: "/admin/blogs",
+    icon: "scrollText",
+    label: "Blogs",
+  },
+  {
     title: "Account",
     icon: "user",
     label: "account",

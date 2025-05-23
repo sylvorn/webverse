@@ -6,16 +6,16 @@ import { DataTable } from "@/app/admin/licenses/data-table";
 import { paymentColumns } from "./paymentsColumns";
 import fetcher from "@/fetcher";
 import useSWR from "swr";
-import { useRecoilValue } from "recoil";
 import { selectedLicense } from "@/store/atoms";
 import { LicenseDrawerSkeleton } from "./LicensesDetailSkeleton";
 import { useRef } from "react";
 import { toPng } from "html-to-image";
 import { Button } from "@/components/ui/button";
+import { useAtomValue } from "jotai";
 
 export default function LicenseDetails() {
   const cardRef = useRef(null);
-  const selectedLicenseId = useRecoilValue(selectedLicense);
+  const selectedLicenseId = useAtomValue(selectedLicense);
   const { data, isLoading } = useSWR(`/api/admin/licenses/${selectedLicenseId}`, fetcher);
 
   if (isLoading) return <LicenseDrawerSkeleton />;

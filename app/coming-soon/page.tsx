@@ -39,7 +39,7 @@ export default function ComingSoonPage() {
   }, []);
 
   return (
-    <div className="min-h-screen w-full bg-black bg-grid-white/[0.2] relative flex items-center justify-center overflow-hidden py-10">
+    <div className="min-h-screen w-full bg-black relative flex items-center justify-center overflow-hidden py-10">
       <div className="absolute pointer-events-none inset-0 flex items-center justify-center bg-black [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]"></div>
       <BackgroundBeams />
       <div className="container mx-auto px-4 relative z-10 bg-black/50 rounded-3xl p-8">
