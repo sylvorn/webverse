@@ -1,8 +1,6 @@
-import { RecoilContextProvider } from "@/sections/layout/RecoilContextProvider";
-import { ThemeProvider } from "@/components/theme-provider";
 import { FloatingNavbar } from "@/sections/navbar/navbar";
+import Providers from "@/components/global/Providers";
 import { Footer } from "@/sections/footer/footer";
-import { SessionProvider } from "next-auth/react";
 import { Inter } from "next/font/google";
 import type { Metadata } from "next";
 import "./globals.css";
@@ -42,15 +40,11 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
   return (
     <html lang="en">
       <body className={`${inter.className} antialiased scrollbar-hide`}>
-        <RecoilContextProvider>
-          <SessionProvider>
-            <ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange>
-              <FloatingNavbar />
-              {children}
-              <Footer />
-            </ThemeProvider>
-          </SessionProvider>
-        </RecoilContextProvider>
+        <Providers>
+          <FloatingNavbar />
+          {children}
+          <Footer />
+        </Providers>
       </body>
     </html>
   );

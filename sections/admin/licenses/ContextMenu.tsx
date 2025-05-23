@@ -2,10 +2,10 @@ import { ContextMenuContent, ContextMenuItem } from "@/components/ui/context-men
 import { DrawerTrigger } from "@/components/ui/drawer";
 import { selectedLicense } from "@/store/atoms";
 import { Row, SortingState } from "@tanstack/react-table";
-import { useSetRecoilState } from "recoil";
+import { useSetAtom } from "jotai";
 
 export default function AdminLicenseContextMenu({ row }: { row: Row<any> }) {
-  const setSelectedLicense = useSetRecoilState(selectedLicense);
+  const setSelectedLicense = useSetAtom(selectedLicense);
   const license = row.original;
   return (
     <>

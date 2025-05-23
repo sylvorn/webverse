@@ -1,5 +1,4 @@
 import HeroSection from "@/sections/home/hero";
-import QuestionSection from "@/sections/home/Questions/questions";
 import ServiceSection from "@/sections/home/services";
 import SolutionSection from "@/sections/home/Solutions/solutions";
 import Technologies from "@/sections/home/technologies";
@@ -12,7 +11,6 @@ export default function SpotlightPreview() {
       <Technologies />
       <ServiceSection />
       {/* <SolutionSection /> */}
-      <QuestionSection />
       <Testimonials />
     </>
   );

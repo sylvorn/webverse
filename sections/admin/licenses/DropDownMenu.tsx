@@ -4,11 +4,11 @@ import { DrawerTrigger } from "@/components/ui/drawer";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 import { selectedLicense } from "@/store/atoms";
 import { Row } from "@tanstack/react-table";
+import { useSetAtom } from "jotai";
 import { MoreHorizontal } from "lucide-react";
-import { useSetRecoilState } from "recoil";
 
 export default function LicenseDropdownMenu({ row }: { row: Row<License> }) {
-  const setSelectedLicense = useSetRecoilState(selectedLicense);
+  const setSelectedLicense = useSetAtom(selectedLicense);
   const license = row.original;
   return (
     <DropdownMenu>

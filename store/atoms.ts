@@ -1,6 +1,3 @@
-import { atom } from "recoil";
+import { atom } from "jotai";
 
-export const selectedLicense = atom({
-  key: "selectedLicense",
-  default: "",
-});
+export const selectedLicense = atom("");
