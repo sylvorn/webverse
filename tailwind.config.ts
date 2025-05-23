@@ -2,6 +2,7 @@ const { default: flattenColorPalette } = require("tailwindcss/lib/util/flattenCo
 const svgToDataUri = require("mini-svg-data-uri");
 import type { Config } from "tailwindcss";
 const colors = require("tailwindcss/colors");
+import tailwindScrollbarHide from "tailwind-scrollbar-hide";
 
 const config = {
   darkMode: ["class"],
@@ -134,7 +135,7 @@ const config = {
         { values: flattenColorPalette(theme("backgroundColor")), type: "color" }
       );
     },
-    require("tailwind-scrollbar-hide"),
+    tailwindScrollbarHide,
   ],
 } satisfies Config;
 
