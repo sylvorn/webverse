@@ -1,5 +1,5 @@
-import RegisterForm from "@/sections/auth/register/register-form";
-import SignInViewPage from "@/sections/auth/view/warpper";
+import RegisterForm from "@/components/sections/auth/register/register-form";
+import SignInViewPage from "@/components/sections/auth/view/warpper";
 import { Metadata } from "next";
 import { Suspense } from "react";
 

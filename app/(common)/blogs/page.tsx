@@ -1,5 +1,5 @@
-import BlogList from "@/sections/blogs/BlogList";
-import PageHead from "@/sections/page-header/pageHeader";
+import BlogList from "@/components/sections/blogs/BlogList";
+import PageHead from "@/components/global/page-header/pageHeader";
 
 export default function BlogsPage() {
   return (

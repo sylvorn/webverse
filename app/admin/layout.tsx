@@ -1,5 +1,5 @@
-import Sidebar from "@/sections/layout/sidebar";
-import Header from "@/sections/layout/header";
+import Sidebar from "@/components/global/dashbard-header/sidebar";
+import Header from "@/components/global/dashbard-header/header";
 import { navItems } from "@/constant/admin";
 import type { Metadata } from "next";
 

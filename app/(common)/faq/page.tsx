@@ -1,5 +1,5 @@
-import FAQ from "@/sections/faq/FAQ";
-import PageHead from "@/sections/page-header/pageHeader";
+import FAQ from "@/components/sections/faq/FAQ";
+import PageHead from "@/components/global/page-header/pageHeader";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {

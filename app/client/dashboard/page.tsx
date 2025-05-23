@@ -1,6 +1,6 @@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import PageContainer from "@/components/layout/page-container";
-import OverViewPage from "@/sections/client/dashboard/overview/page";
+import OverViewPage from "@/components/sections/client/dashboard/overview/page";
 import { auth } from "@/auth";
 
 export default async function ClientDashboardPage() {

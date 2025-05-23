@@ -1,5 +1,5 @@
-import ContactDetails from "@/sections/contact/contactDetails";
-import PageHead from "@/sections/page-header/pageHeader";
+import ContactDetails from "@/components/sections/contact/contactDetails";
+import PageHead from "@/components/global/page-header/pageHeader";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {

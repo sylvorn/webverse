@@ -7,7 +7,7 @@ import { useForm, useFieldArray, Controller } from "react-hook-form";
 import { javascript } from "@codemirror/lang-javascript";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Textarea } from "@/components/ui/textarea";
-import FormError from "@/sections/auth/form-error";
+import FormError from "@/components/sections/auth/form-error";
 import { useState, useTransition } from "react";
 import { Button } from "@/components/ui/button";
 import newSolution from "@/actions/new-solution";

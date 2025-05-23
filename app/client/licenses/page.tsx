@@ -9,7 +9,7 @@ import fetcher from "@/fetcher";
 import useSWR from "swr";
 import PaymentPageSkeleton from "./skeleton";
 import { Drawer } from "@/components/ui/drawer";
-import LicenseDetails from "@/sections/client/licenses/licenseDetails";
+import LicenseDetails from "@/components/sections/client/licenses/licenseDetails";
 
 const breadcrumbItems = [
   { title: "Dashboard", link: "/client/dashboard" },

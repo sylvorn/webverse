@@ -1,7 +1,7 @@
 "use client";
-import { LicenseDrawerSkeleton } from "@/sections/admin/licenses/LicensesDetailSkeleton";
+import { LicenseDrawerSkeleton } from "@/components/sections/admin/licenses/LicensesDetailSkeleton";
 import { DrawerContent, DrawerHeader, DrawerTitle } from "@/components/ui/drawer";
-import { paymentColumns } from "@/sections/admin/licenses/paymentsColumns";
+import { paymentColumns } from "@/components/sections/admin/licenses/paymentsColumns";
 import PageContainer from "@/components/layout/page-container";
 import { DataTable } from "@/components/global/DataTable";
 import LicenseKeyCard from "../licenses-card/licensesCard";

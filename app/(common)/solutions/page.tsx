@@ -1,5 +1,5 @@
-import PageHead from "@/sections/page-header/pageHeader";
-import Solution from "@/sections/solutions/all-solutions";
+import PageHead from "@/components/global/page-header/pageHeader";
+import Solution from "@/components/sections/solutions/all-solutions";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {

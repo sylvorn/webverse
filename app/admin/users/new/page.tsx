@@ -1,4 +1,4 @@
-import NewUserForm from "@/sections/admin/users/new-user-form";
+import NewUserForm from "@/components/sections/admin/users/new-user-form";
 import PageContainer from "@/components/layout/page-container";
 import { Breadcrumbs } from "@/components/ui/breadcrumbs";
 import { Separator } from "@/components/ui/seprator";

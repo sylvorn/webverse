@@ -1,6 +1,6 @@
-import { FloatingNavbar } from "@/sections/navbar/navbar";
+import { FloatingNavbar } from "@/components/global/navbar/navbar";
 import Providers from "@/components/global/Providers";
-import { Footer } from "@/sections/footer/footer";
+import { Footer } from "@/components/global/footer/footer";
 import { Inter } from "next/font/google";
 import type { Metadata } from "next";
 import "./globals.css";

@@ -1,6 +1,6 @@
 "use client";
 import { DrawerContent, DrawerHeader, DrawerTitle } from "@/components/ui/drawer";
-import LicenseKeyCard from "@/sections/client/licenses-card/licensesCard";
+import LicenseKeyCard from "@/components/sections/client/licenses-card/licensesCard";
 import PageContainer from "@/components/layout/page-container";
 import { DataTable } from "@/components/global/DataTable";
 import { paymentColumns } from "./paymentsColumns";
