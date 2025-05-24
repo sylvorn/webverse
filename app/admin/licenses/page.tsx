@@ -9,7 +9,7 @@ import { DataTable } from "@/components/global/DataTable";
 import { columns } from "./columns";
 import fetcher from "@/fetcher";
 import useSWR from "swr";
-import LicenseDetails from "@/sections/admin/licenses/licensesDetails";
+import LicenseDetails from "@/components/sections/admin/licenses/licensesDetails";
 
 const breadcrumbItems = [
   { title: "Dashboard", link: "/admin/dashboard" },

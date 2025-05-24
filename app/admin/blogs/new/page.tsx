@@ -11,7 +11,7 @@ import TableRow from "@tiptap/extension-table-row";
 import Underline from "@tiptap/extension-underline";
 import { Color } from "@tiptap/extension-color";
 import TextStyle from "@tiptap/extension-text-style";
-import { TextAlign as CustomTextAlign } from "@/sections/admin/blogs/text-align";
+import { TextAlign as CustomTextAlign } from "@/components/sections/admin/blogs/text-align";
 
 import PageContainer from "@/components/layout/page-container";
 import { Breadcrumbs } from "@/components/ui/breadcrumbs";
@@ -22,8 +22,8 @@ import StarterKit from "@tiptap/starter-kit";
 import { useState } from "react";
 import { all, createLowlight } from "lowlight";
 
-import Toolbar from "@/sections/admin/blogs/new-blog-editor-toolbar";
-import { NewBlogForm } from "@/sections/admin/blogs/new-blog-form";
+import Toolbar from "@/components/sections/admin/blogs/new-blog-editor-toolbar";
+import { NewBlogForm } from "@/components/sections/admin/blogs/new-blog-form";
 
 const breadcrumbItems = [
   { title: "Dashboard", link: "/admin/dashboard" },
