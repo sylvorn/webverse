@@ -1,6 +1,6 @@
 "use client";
-import SignInViewPage from "@/sections/auth/view/warpper";
-import VerifyUserForm from "@/sections/auth/verify-user/verify-user-form";
+import SignInViewPage from "@/components/sections/auth/view/warpper";
+import VerifyUserForm from "@/components/sections/auth/verify-user/verify-user-form";
 import { Suspense } from "react";
 
 export default function VerifyUserPage() {

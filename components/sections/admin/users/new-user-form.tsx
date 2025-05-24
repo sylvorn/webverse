@@ -8,10 +8,10 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
-import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from "@/components/ui/card";
+import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import { newUserSchema } from "@/schemas";
-import FormError from "@/sections/auth/form-error";
-import FormSuccess from "@/sections/auth/form-success";
+import FormError from "@/components/sections/auth/form-error";
+import FormSuccess from "@/components/sections/auth/form-success";
 import newUser from "@/actions/new-user";
 import { useRouter } from "next/navigation";
 

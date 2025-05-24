@@ -3,13 +3,13 @@ import PageContainer from "@/components/layout/page-container";
 import { Breadcrumbs } from "@/components/ui/breadcrumbs";
 import { Separator } from "@/components/ui/seprator";
 import { Heading } from "@/components/ui/heading";
-import { DataTable } from "./data-table";
+import { DataTable } from "@/components/global/DataTable";
 import { columns } from "./columns";
 import fetcher from "@/fetcher";
 import useSWR from "swr";
 import PaymentPageSkeleton from "./skeleton";
 import { Drawer } from "@/components/ui/drawer";
-import LicenseDetails from "@/sections/client/licenses/licenseDetails";
+import LicenseDetails from "@/components/sections/client/licenses/licenseDetails";
 
 const breadcrumbItems = [
   { title: "Dashboard", link: "/client/dashboard" },

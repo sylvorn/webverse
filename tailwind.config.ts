@@ -6,7 +6,7 @@ import tailwindScrollbarHide from "tailwind-scrollbar-hide";
 
 const config = {
   darkMode: ["class"],
-  content: ["./pages/**/*.{ts,tsx}", "./components/**/*.{ts,tsx}", "./app/**/*.{ts,tsx}", "./src/**/*.{ts,tsx}", "./sections/**/*.{ts,tsx}"],
+  content: ["./pages/**/*.{ts,tsx}", "./components/**/*.{ts,tsx}", "./app/**/*.{ts,tsx}", "./src/**/*.{ts,tsx}", "./components/sections/**/*.{ts,tsx}"],
   prefix: "",
   theme: {
     container: {

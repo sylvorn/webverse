@@ -1,6 +1,6 @@
 "use client";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { RecentSales } from "@/sections/admin/dashboard/overview/recent-sales";
+import { RecentSales } from "@/components/sections/admin/dashboard/overview/recent-sales";
 import { AreaGraph } from "@/components/graph/area-graph";
 import { PieGraph } from "@/components/graph/pie-graph";
 

@@ -1,6 +1,6 @@
-import { Details } from "@/sections/about/details";
-import { Team } from "@/sections/about/team";
-import PageHead from "@/sections/page-header/pageHeader";
+import { Details } from "@/components/sections/about/details";
+import { Team } from "@/components/sections/about/team";
+import PageHead from "@/components/global/page-header/pageHeader";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {

@@ -3,7 +3,7 @@ import { ArrowUpDown } from "lucide-react";
 import { ColumnDef } from "@tanstack/react-table";
 import { Button } from "@/components/ui/button";
 import dayjs from "dayjs";
-import LicenseDropdownMenu from "@/sections/admin/licenses/DropDownMenu";
+import LicenseDropdownMenu from "@/components/sections/admin/licenses/DropDownMenu";
 import { Badge } from "@/components/ui/badge";
 
 export type Blog = {

@@ -12,7 +12,7 @@ import { format } from "date-fns";
 import { EditorContent, ReactNodeViewRenderer, useEditor } from "@tiptap/react";
 import { useEffect, useState } from "react";
 import StarterKit from "@tiptap/starter-kit";
-import { TextAlign as CustomTextAlign } from "@/sections/admin/blogs/text-align";
+import { TextAlign as CustomTextAlign } from "@/components/sections/admin/blogs/text-align";
 import CodeBlockLowlight from "@tiptap/extension-code-block-lowlight";
 import Color from "@tiptap/extension-color";
 import Highlight from "@tiptap/extension-highlight";
@@ -27,8 +27,8 @@ import TextStyle from "@tiptap/extension-text-style";
 import Underline from "@tiptap/extension-underline";
 import { all, createLowlight } from "lowlight";
 import { Progress } from "@/components/ui/progress";
-import CodeBlockViewer from "@/sections/blogs/CodeBlockViewer";
-import "@/sections/blogs/CodeBlockStyle.scss";
+import CodeBlockViewer from "@/components/sections/blogs/CodeBlockViewer";
+import "@/components/sections/blogs/CodeBlockStyle.scss";
 
 interface BlogPageProps {
   params: { id: string };

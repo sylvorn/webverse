@@ -4,7 +4,7 @@ import { Breadcrumbs } from "@/components/ui/breadcrumbs";
 import { buttonVariants } from "@/components/ui/button";
 import { Separator } from "@/components/ui/seprator";
 import { Heading } from "@/components/ui/heading";
-import { DataTable } from "./data-table";
+import { DataTable } from "@/components/global/DataTable";
 import { columns } from "./columns";
 import { Plus } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -36,7 +36,25 @@ export default function AdminUsersPage() {
           </Link>
         </div>
         <Separator />
-        <DataTable data={data} columns={columns} />
+        <DataTable
+          data={data}
+          columns={columns}
+          search={{ column: "email", placeholder: "Search Email" }}
+          filter={{
+            column: "role",
+            placeholder: "Select a role",
+            options: [
+              { value: "all", label: "All Roles" },
+              { value: "Admin", label: "Admin" },
+              { value: "Client", label: "Client" },
+            ],
+          }}
+          noData={{
+            icon: <div className="rounded-full bg-primary/10 p-3"></div>,
+            title: "No results found",
+            description: "There are no users matching your search criteria.",
+          }}
+        />
       </div>
     </PageContainer>
   );

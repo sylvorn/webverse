@@ -1,9 +1,9 @@
 "use client";
-import { LicenseDrawerSkeleton } from "@/sections/admin/licenses/LicensesDetailSkeleton";
+import { LicenseDrawerSkeleton } from "@/components/sections/admin/licenses/LicensesDetailSkeleton";
 import { DrawerContent, DrawerHeader, DrawerTitle } from "@/components/ui/drawer";
-import { paymentColumns } from "@/sections/admin/licenses/paymentsColumns";
+import { paymentColumns } from "@/components/sections/admin/licenses/paymentsColumns";
 import PageContainer from "@/components/layout/page-container";
-import { DataTable } from "@/app/client/licenses/data-table";
+import { DataTable } from "@/components/global/DataTable";
 import LicenseKeyCard from "../licenses-card/licensesCard";
 import { selectedLicense } from "@/store/atoms";
 import fetcher from "@/fetcher";
@@ -46,7 +46,26 @@ export default function LicenseDetails() {
             <LicenseKeyCard softwareName={data.serviceName} licenseKey={data.licenseKey} buyDate={data.buyDate} expiryDate={data.expiryDate} status={data.status} planName={data.planName} />
           </div>
           <h3 className="text-lg font-semibold">Payment History</h3>
-          <DataTable columns={paymentColumns} data={data.paymentsHistory} />
+          <DataTable
+            columns={paymentColumns}
+            data={data.paymentsHistory}
+            search={{ column: "id", placeholder: "Search Payment ID" }}
+            filter={{
+              column: "status",
+              placeholder: "Select a status",
+              options: [
+                { value: "all", label: "All Status" },
+                { value: "Completed", label: "Completed" },
+                { value: "Pending", label: "Pending" },
+                { value: "Failed", label: "Failed" },
+              ],
+            }}
+            noData={{
+              icon: <div className="rounded-full bg-primary/10 p-3"></div>,
+              title: "No results found",
+              description: "There are no payments matching your search criteria.",
+            }}
+          />
         </div>
       </PageContainer>
     </DrawerContent>

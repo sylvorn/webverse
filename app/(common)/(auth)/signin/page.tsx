@@ -1,5 +1,5 @@
-import LoginForm from "@/sections/auth/login/login-form";
-import SignInViewPage from "@/sections/auth/view/warpper";
+import LoginForm from "@/components/sections/auth/login/login-form";
+import SignInViewPage from "@/components/sections/auth/view/warpper";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {

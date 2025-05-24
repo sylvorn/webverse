@@ -1,8 +1,8 @@
 "use client";
 import { DrawerContent, DrawerHeader, DrawerTitle } from "@/components/ui/drawer";
-import LicenseKeyCard from "@/sections/client/licenses-card/licensesCard";
+import LicenseKeyCard from "@/components/sections/client/licenses-card/licensesCard";
 import PageContainer from "@/components/layout/page-container";
-import { DataTable } from "@/app/admin/licenses/data-table";
+import { DataTable } from "@/components/global/DataTable";
 import { paymentColumns } from "./paymentsColumns";
 import fetcher from "@/fetcher";
 import useSWR from "swr";
@@ -46,7 +46,26 @@ export default function LicenseDetails() {
             <LicenseKeyCard softwareName={data.solutionName} licenseKey={data.licenseKey} buyDate={data.buyDate} expiryDate={data.expiryDate} status={data.status} planName={data.planName} />
           </div>
           <h3 className="text-lg font-semibold mt-6">Payment History</h3>
-          <DataTable columns={paymentColumns} data={data.paymentsHistory} />
+          <DataTable
+            columns={paymentColumns}
+            data={data.paymentsHistory}
+            search={{ column: "id", placeholder: "Search Payment ID" }}
+            filter={{
+              column: "status",
+              placeholder: "Select a status",
+              options: [
+                { value: "all", label: "All Status" },
+                { value: "Completed", label: "Completed" },
+                { value: "Pending", label: "Pending" },
+                { value: "Failed", label: "Failed" },
+              ],
+            }}
+            noData={{
+              icon: <div className="rounded-full bg-primary/10 p-3"></div>,
+              title: "No results found",
+              description: "There are no payments matching your search criteria.",
+            }}
+          />
         </div>
       </PageContainer>
     </DrawerContent>

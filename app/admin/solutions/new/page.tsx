@@ -1,6 +1,6 @@
 "use client";
 
-import NewSolutionForm from "@/sections/admin/solutions/new-solution-form/newSolutionForm";
+import NewSolutionForm from "@/components/sections/admin/solutions/new-solution-form/newSolutionForm";
 import PageContainer from "@/components/layout/page-container";
 import { Breadcrumbs } from "@/components/ui/breadcrumbs";
 import { Separator } from "@/components/ui/seprator";

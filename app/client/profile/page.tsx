@@ -1,5 +1,5 @@
 import PageContainer from "@/components/layout/page-container";
-import ProfilePage from "@/sections/profile/profilePage";
+import ProfilePage from "@/components/sections/profile/profilePage";
 
 export default function ClientProfilePage() {
   return (

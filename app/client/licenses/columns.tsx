@@ -5,7 +5,7 @@ import { ColumnDef } from "@tanstack/react-table";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import dayjs from "dayjs";
-import ClientLicenseDropDownMenu from "@/sections/client/licenses/ClientLicensDropDownMenu";
+import ClientLicenseDropDownMenu from "@/components/sections/client/licenses/ClientLicensDropDownMenu";
 
 export type License = {
   id: string;

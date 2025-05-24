@@ -11,8 +11,8 @@ import { Input } from "@/components/ui/input";
 import { PlusCircle } from "lucide-react";
 import { newCategorySchema } from "@/schemas";
 import newCategory from "@/actions/new-category";
-import FormError from "@/sections/auth/form-error";
-import FormSuccess from "@/sections/auth/form-success";
+import FormError from "@/components/sections/auth/form-error";
+import FormSuccess from "@/components/sections/auth/form-success";
 
 export default function AddCategoryDialog() {
   const [open, setOpen] = useState(false);
